@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="@color/primary"
+        android:paddingBottom="16dp" />
+
+    <EditText
+        android:id="@+id/tradeAmountInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Trade Amount"
+        android:inputType="number"
+        android:text="10" />
+
+    <EditText
+        android:id="@+id/scanIntervalInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Scan Interval (seconds)"
+        android:inputType="numberDecimal"
+        android:text="1"
+        android:layout_marginTop="12dp" />
+
+    <CheckBox
+        android:id="@+id/notificationToggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enable Notifications"
+        android:checked="true"
+        android:layout_marginTop="12dp" />
+
+    <CheckBox
+        android:id="@+id/vibrationToggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enable Vibration"
+        android:checked="true" />
+
+    <Button
+        android:id="@+id/saveSettingsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Settings"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
