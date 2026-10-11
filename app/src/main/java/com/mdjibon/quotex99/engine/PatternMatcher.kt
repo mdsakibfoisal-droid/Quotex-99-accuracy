@@ -1,13 +1,16 @@
-package com.mdjibon.quotex99.engine
+package com.mdjibon.quotex99.model
 
-class PatternMatcher {
-    fun matchPattern(current: PatternSignature, reference: PatternSignature): Float {
-        val sameColor = current.candle1.color == reference.candle1.color
-        val sameSecondColor = current.candle2.color == reference.candle2.color
-        var score = 0f
-        if (sameColor) score += 40f
-        if (sameSecondColor) score += 40f
-        if (current.trend == reference.trend) score += 20f
-        return score.coerceIn(0f, 100f)
-    }
-}
+data class PatternRecord(
+    val id: Int,
+    val market: String,
+    val action: String,
+    val candle1Color: String,
+    val candle2Color: String,
+    val bodySize: String,
+    val wickSize: String
+)
+
+data class PatternMatchResult(
+    val pattern: PatternRecord,
+    val score: Float
+)
