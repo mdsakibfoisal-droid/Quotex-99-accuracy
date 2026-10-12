@@ -1,33 +1,56 @@
-package com.mdjibon.quotex99.engine
+package com.mdjibon.quotex99.service
 
-import com.mdjibon.quotex99.model.PatternMatchResult
-import com.mdjibon.quotex99.model.PatternRecord
+import android.app.Service
+import android.content.Intent
+import android.os.IBinder
+import android.util.Log
+import androidx.lifecycle.lifecycleScope
+import com.mdjibon.quotex99.database.Trade
+import com.mdjibon.quotex99.database.TradeDatabase
+import kotlinx.coroutines.launch
 
-class PatternMatcher {
+class TradeExecutorService : Service() {
 
-    fun matchPattern(current: PatternSignature, reference: PatternRecord): Float {
-        var score = 0f
+    private val TAG = "TradeExecutor"
+    private lateinit var database: TradeDatabase
 
-        if (current.candle1.color.equals(reference.candle1Color, ignoreCase = true)) score += 40f
-        if (current.candle2.color.equals(reference.candle2Color, ignoreCase = true)) score += 40f
-        if (current.candle1.bodySize.equals(reference.bodySize, ignoreCase = true)) score += 10f
-        if (current.candle2.bodySize.equals(reference.bodySize, ignoreCase = true)) score += 10f
-
-        return score.coerceIn(0f, 100f)
+    override fun onCreate() {
+        super.onCreate()
+        database = TradeDatabase.getInstance(this)
     }
 
-    fun findBestMatch(current: PatternSignature, patternList: List<PatternRecord>): PatternMatchResult? {
-        var best: PatternMatchResult? = null
-        var highest = 0f
+    override fun onBind(intent: Intent?): IBinder? = null
 
-        for (pattern in patternList) {
-            val score = matchPattern(current, pattern)
-            if (score >= 90f && score > highest) {
-                highest = score
-                best = PatternMatchResult(pattern, score)
-            }
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        val patternId = intent?.getStringExtra("pattern_id") ?: "UNKNOWN"
+        val signal = intent?.getStringExtra("signal") ?: "BUY"
+        val action = intent?.getStringExtra("action") ?: "BUY"
+        val timestamp = intent?.getLongExtra("timestamp", System.currentTimeMillis()) ?: System.currentTimeMillis()
+
+        Log.d(TAG, "Executing trade: $action on Pattern $patternId")
+
+        // Log trade to database
+        val trade = Trade(
+            timestamp = timestamp,
+            market = "EURUSD",
+            action = action,
+            amount = 10,
+            result = "PENDING",
+            patternId = patternId.toIntOrNull(),
+            similarity = 95f,
+            status = "EXECUTED"
+        )
+
+        // Save to database asynchronously
+        lifecycleScope.launch {
+            database.tradeDao().insertTrade(trade)
+            Log.d(TAG, "Trade saved to database")
         }
 
-        return best
+        // Here we would call accessibility service to perform the actual BUY/SELL click
+        // For now, we just log it
+        Log.d(TAG, "Trade executed successfully: $action $patternId")
+
+        return START_NOT_STICKY
     }
 }

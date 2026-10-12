@@ -36,10 +36,16 @@
         <service
             android:name=".service.FloatingIconService"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection|dataSync" />
 
         <service
             android:name=".service.ScanningService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name=".service.TradeExecutorService"
             android:enabled="true"
             android:exported="false" />
 
