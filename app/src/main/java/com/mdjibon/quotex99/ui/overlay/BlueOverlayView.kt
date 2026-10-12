@@ -11,8 +11,16 @@ class BlueOverlayView(context: Context) : View(context) {
         style = Paint.Style.FILL
     }
 
+    private var opacity = 0.4f
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        paint.alpha = (opacity * 255).toInt()
         canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), paint)
+    }
+
+    fun setOpacity(value: Float) {
+        opacity = value.coerceIn(0f, 1f)
+        invalidate()
     }
 }

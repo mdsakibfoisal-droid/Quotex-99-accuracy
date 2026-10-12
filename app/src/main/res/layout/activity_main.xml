@@ -10,69 +10,143 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Md Jibon Quotex 99%"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="@color/primary"
         android:gravity="center"
-        android:paddingBottom="16dp" />
-
-    <TextView
-        android:id="@+id/statusText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Not Active"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_secondary"
-        android:padding="12dp"
-        android:background="@android:color/white" />
+        android:paddingBottom="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:gravity="center">
+        android:background="@android:color/white"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
 
-        <Button
-            android:id="@+id/startButton"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/start_scanning" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/stopButton"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Trades"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/tradeCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:text="@string/stop_scanning" />
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Win Rate"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:gravity="end" />
+
+            <TextView
+                android:id="@+id/winRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/success"
+                android:gravity="end" />
+        </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/settingsButton"
+    <TextView
+        android:id="@+id/statusText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:layout_marginTop="16dp" />
+        android:text="⏹️ Scanning Stopped"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_secondary"
+        android:padding="12dp"
+        android:background="@android:color/white"
+        android:layout_marginBottom="16dp" />
 
     <Button
-        android:id="@+id/historyButton"
+        android:id="@+id/startButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="▶️ Start Scanning"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="⏹️ Stop Scanning"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/history"
-        android:layout_marginTop="8dp" />
+        android:text="Last Trade"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:paddingBottom="8dp" />
 
     <TextView
         android:id="@+id/lastTradeText"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:text="No trades yet"
-        android:padding="12dp"
-        android:layout_marginTop="16dp"
+        android:textSize="12sp"
+        android:textColor="@color/text_primary"
         android:background="@android:color/white"
-        android:textColor="@color/text_primary" />
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="auto">
+
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="📊 History"
+            android:textSize="12sp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/settingsButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="⚙️ Settings"
+            android:textSize="12sp" />
+    </LinearLayout>
 
 </LinearLayout>

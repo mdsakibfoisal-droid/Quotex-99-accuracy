@@ -7,6 +7,7 @@ import android.os.Build
 import android.provider.Settings
 
 object PermissionManager {
+
     fun hasOverlayPermission(activity: Activity): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Settings.canDrawOverlays(activity)
@@ -16,10 +17,25 @@ object PermissionManager {
     }
 
     fun requestOverlayPermission(activity: Activity) {
-        val intent = Intent(
-            Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-            Uri.parse("package:${activity.packageName}")
-        )
+        if (!hasOverlayPermission(activity)) {
+            val intent = Intent(
+                Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                Uri.parse("package:${activity.packageName}")
+            )
+            activity.startActivity(intent)
+        }
+    }
+
+    fun hasAccessibilityPermission(context: android.content.Context): Boolean {
+        val enabledServices = Settings.Secure.getString(
+            context.contentResolver,
+            Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
+        ) ?: ""
+        return enabledServices.contains("com.mdjibon.quotex99/.accessibility.QuotexAccessibilityService")
+    }
+
+    fun requestAccessibilityPermission(activity: Activity) {
+        val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
         activity.startActivity(intent)
     }
 }
