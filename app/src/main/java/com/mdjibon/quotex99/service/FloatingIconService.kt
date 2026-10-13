@@ -113,11 +113,16 @@ class FloatingIconService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) intent.getParcelableExtra(EXTRA_RESULT_DATA, Intent::class.java)
         else intent.getParcelableExtra(EXTRA_RESULT_DATA)
 
+    private fun publishCaptureStatus(status: String) {
+        sendBroadcast(Intent(ACTION_CAPTURE_STATUS).setPackage(packageName).putExtra(EXTRA_CAPTURE_STATUS, status))
+    }
+
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val resultCode = intent?.getIntExtra(EXTRA_RESULT_CODE, 0) ?: 0
         val data = intent?.let { resultData(it) }
         if (resultCode == 0 || data == null) {
             Log.e(tag, "Missing screen-capture consent result")
+            publishCaptureStatus(STATUS_FAILED)
             stopSelf()
             return START_NOT_STICKY
         }
@@ -132,11 +137,20 @@ class FloatingIconService : Service() {
             captureEngine = ScreenCaptureEngine(this).also { it.initialize(requireNotNull(projection)) }
         } catch (e: Exception) {
             Log.e(tag, "Screen capture initialization failed", e)
+            publishCaptureStatus(STATUS_FAILED)
             stopSelf()
             return START_NOT_STICKY
         }
-        if (container?.parent == null) windowManager?.addView(container, container?.layoutParams)
+        try {
+            if (container?.parent == null) windowManager?.addView(container, container?.layoutParams)
+        } catch (e: Exception) {
+            Log.e(tag, "Unable to display floating control", e)
+            publishCaptureStatus(STATUS_FAILED)
+            stopSelf()
+            return START_NOT_STICKY
+        }
         statusView?.text = "Capture ready"
+        publishCaptureStatus(STATUS_READY)
         return START_NOT_STICKY
     }
 
@@ -210,6 +224,7 @@ class FloatingIconService : Service() {
         captureEngine = null
         projection?.let { runCatching { it.stop() } }
         projection = null
+        publishCaptureStatus(STATUS_STOPPED)
         analysisExecutor.shutdownNow()
         container?.let { runCatching { windowManager?.removeViewImmediate(it) } }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -224,6 +239,11 @@ class FloatingIconService : Service() {
     override fun onBind(intent: Intent?): IBinder? = null
 
     companion object {
+        const val ACTION_CAPTURE_STATUS = "com.mdjibon.quotex99.CAPTURE_STATUS"
+        const val EXTRA_CAPTURE_STATUS = "capture_status"
+        const val STATUS_READY = "ready"
+        const val STATUS_FAILED = "failed"
+        const val STATUS_STOPPED = "stopped"
         const val EXTRA_RESULT_CODE = "screen_capture_result_code"
         const val EXTRA_RESULT_DATA = "screen_capture_result_data"
         private const val CHANNEL_ID = "quotex_chart_scanning"
