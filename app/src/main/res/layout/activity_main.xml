@@ -129,7 +129,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="auto">
+        android:layout_marginTop="0dp">
 
         <Button
             android:id="@+id/historyButton"
