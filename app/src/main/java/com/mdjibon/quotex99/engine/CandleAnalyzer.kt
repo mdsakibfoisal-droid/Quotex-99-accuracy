@@ -118,11 +118,12 @@ class CandleAnalyzer {
     }
 
     fun analyzeChartImage(chartBytes: ByteArray?): List<CandleInfo>? {
-        if (chartBytes.isNullOrEmpty()) {
+        val bytes = chartBytes
+        if (bytes == null || bytes.isEmpty()) {
             Log.w(tag, "No chart image supplied")
             return null
         }
-        val bitmap = runCatching { BitmapFactory.decodeByteArray(chartBytes, 0, chartBytes.size) }.getOrNull()
+        val bitmap = runCatching { BitmapFactory.decodeByteArray(bytes, 0, bytes.size) }.getOrNull()
         if (bitmap == null) {
             Log.w(tag, "Supplied bytes are not a decodable bitmap")
             return null
