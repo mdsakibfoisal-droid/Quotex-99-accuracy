@@ -69,13 +69,15 @@ class ScreenCaptureEngine(private val context: Context) {
             val plane = image.planes.firstOrNull() ?: return null
             if (plane.pixelStride <= 0 || plane.rowStride <= 0) return null
             val paddedWidth = plane.rowStride / plane.pixelStride
-            paddedBitmap = Bitmap.createBitmap(paddedWidth, image.height, Bitmap.Config.ARGB_8888)
+            val padded = Bitmap.createBitmap(paddedWidth, image.height, Bitmap.Config.ARGB_8888)
+            paddedBitmap = padded
             plane.buffer.rewind()
-            paddedBitmap.copyPixelsFromBuffer(plane.buffer)
+            padded.copyPixelsFromBuffer(plane.buffer)
             if (paddedWidth == image.width) {
-                paddedBitmap.also { paddedBitmap = null }
+                paddedBitmap = null
+                padded
             } else {
-                Bitmap.createBitmap(paddedBitmap, 0, 0, image.width, image.height)
+                Bitmap.createBitmap(padded, 0, 0, image.width, image.height)
             }
         } catch (e: Exception) {
             Log.e(tag, "Screen frame capture failed", e)
