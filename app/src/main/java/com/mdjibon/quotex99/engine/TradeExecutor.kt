@@ -45,11 +45,7 @@ class TradeExecutor(
                 }
 
                 if (executed) {
-                    trade.status = TradeStatus.EXECUTED
-                    
-                    // Do not fabricate a win/loss: this app does not yet read the
-                    // actual Quotex settlement or exit price. Keep the trade EXECUTED
-                    // until a verified result source is integrated.
+                    // Actual settlement is not available yet; never infer a win/loss.
                     trade.status = TradeStatus.EXECUTED
                 }
 
