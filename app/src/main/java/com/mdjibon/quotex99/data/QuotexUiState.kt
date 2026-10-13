@@ -79,15 +79,15 @@ data class TradeResult(
     val id: String = java.util.UUID.randomUUID().toString(),
     val direction: TradeDirection,
     val entryPrice: Double,
-    val exitPrice: Double = 0.0,
+    var exitPrice: Double = 0.0,
     val amount: Int,
-    val status: TradeStatus = TradeStatus.PENDING,
-    val profit: Double = 0.0,
-    val profitPercent: Double = 0.0,
+    var status: TradeStatus = TradeStatus.PENDING,
+    var profit: Double = 0.0,
+    var profitPercent: Double = 0.0,
     val pattern: String = "",
     val confidence: Float = 0f,
     val createdAt: Long = System.currentTimeMillis(),
-    val closedAt: Long = 0L
+    var closedAt: Long = 0L
 )
 
 enum class TradeStatus {
