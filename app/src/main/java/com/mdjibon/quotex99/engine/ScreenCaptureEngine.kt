@@ -53,6 +53,10 @@ class ScreenCaptureEngine(private val context: Context) {
         Log.i(tag, "Capture initialized: ${width}x${height}")
     }
 
+    /** True while the projection, virtual display, and image reader are all available. */
+    @Synchronized
+    fun isCapturing(): Boolean = projection != null && display != null && reader != null
+
     /** Returns a caller-owned bitmap for the newest available frame, or null if none is ready. */
     @Synchronized
     fun captureFrame(): Bitmap? {
