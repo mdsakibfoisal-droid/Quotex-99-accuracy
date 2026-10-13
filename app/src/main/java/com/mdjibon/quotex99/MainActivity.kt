@@ -30,11 +30,15 @@ class MainActivity : AppCompatActivity() {
     private val screenCaptureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         val data = result.data
         if (result.resultCode == RESULT_OK && data != null) {
-            startFloatingService(result.resultCode, data)
-            binding.statusText.text = "Screen capture ready"
-            binding.startButton.isEnabled = false
-            binding.stopButton.isEnabled = true
-            isServiceRunning = true
+            if (startFloatingService(result.resultCode, data)) {
+                binding.statusText.text = "Screen capture requested"
+                binding.startButton.isEnabled = false
+                binding.stopButton.isEnabled = true
+                isServiceRunning = true
+            } else {
+                binding.statusText.text = "Could not start capture service"
+                Toast.makeText(this, "Could not start screen capture. Please try again.", Toast.LENGTH_LONG).show()
+            }
         } else {
             binding.statusText.text = "Screen capture permission denied"
             Toast.makeText(this, "Allow screen capture to scan chart frames", Toast.LENGTH_LONG).show()
@@ -89,12 +93,18 @@ class MainActivity : AppCompatActivity() {
         binding.stopButton.isEnabled = false
     }
 
-    private fun startFloatingService(resultCode: Int, resultData: Intent) {
+    private fun startFloatingService(resultCode: Int, resultData: Intent): Boolean {
         val intent = Intent(this, FloatingIconService::class.java).apply {
             putExtra(FloatingIconService.EXTRA_RESULT_CODE, resultCode)
             putExtra(FloatingIconService.EXTRA_RESULT_DATA, resultData)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent) else startService(intent)
+        return try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent) else startService(intent)
+            true
+        } catch (e: Exception) {
+            android.util.Log.e("MainActivity", "Unable to start screen-capture service", e)
+            false
+        }
     }
 
     private fun stopFloatingService() {
