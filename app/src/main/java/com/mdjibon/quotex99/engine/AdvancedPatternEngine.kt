@@ -87,8 +87,8 @@ class AdvancedPatternEngine {
     }
 
     private fun calculateEngulfingConfidence(current: CandleData, previous: CandleData): Float {
-        val bodyRatio = current.body / maxOf(previous.body, 0.1)
-        val sizeBonus = minOf((bodyRatio - 0.8f) * 50, 25f)
+        val bodyRatio = (current.body / maxOf(previous.body, 0.1)).toFloat()
+        val sizeBonus = minOf((bodyRatio - 0.8f) * 50f, 25f)
         return minOf(75f + sizeBonus, 95f)
     }
 
