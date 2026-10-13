@@ -42,6 +42,7 @@ class FloatingIconService : Service() {
     private var scanTask: Runnable? = null
     private var captureEngine: ScreenCaptureEngine? = null
     private var projection: MediaProjection? = null
+    private var analysisInProgress = false
 
     override fun onCreate() {
         super.onCreate()
@@ -155,20 +156,33 @@ class FloatingIconService : Service() {
         scanTask = object : Runnable {
             override fun run() {
                 if (!scanning) return
-                val frame = runCatching { captureEngine?.captureFrame() }.getOrNull()
-                if (frame == null) {
-                    statusView?.text = "Waiting for chart frame"
-                } else {
-                    analysisExecutor.execute {
-                        val count = try { analyzer.detectCandles(frame).size }
-                        catch (e: Exception) { Log.e(tag, "Image analysis failed", e); 0 }
-                        finally { if (!frame.isRecycled) frame.recycle() }
-                        handler.post {
-                            if (scanning) {
-                                signalView?.text = "NO SIGNAL"
-                                signalView?.setBackgroundColor(Color.DKGRAY)
-                                statusView?.text = if (count >= 2) "Candidates: $count (unverified)" else "No verified candles"
+                // Never queue an unbounded backlog of full-screen bitmap analyses.
+                if (!analysisInProgress) {
+                    val frame = runCatching { captureEngine?.captureFrame() }.getOrNull()
+                    if (frame == null) {
+                        statusView?.text = "Waiting for chart frame"
+                    } else {
+                        analysisInProgress = true
+                        try {
+                            analysisExecutor.execute {
+                                val count = try { analyzer.detectCandles(frame).size }
+                                catch (e: Exception) { Log.e(tag, "Image analysis failed", e); 0 }
+                                finally {
+                                    if (!frame.isRecycled) frame.recycle()
+                                    handler.post { analysisInProgress = false }
+                                }
+                                handler.post {
+                                    if (scanning) {
+                                        signalView?.text = "NO SIGNAL"
+                                        signalView?.setBackgroundColor(Color.DKGRAY)
+                                        statusView?.text = if (count >= 2) "Candidates: $count (unverified)" else "No verified candles"
+                                    }
+                                }
                             }
+                        } catch (e: java.util.concurrent.RejectedExecutionException) {
+                            if (!frame.isRecycled) frame.recycle()
+                            analysisInProgress = false
+                            Log.w(tag, "Frame skipped because analysis executor is shutting down")
                         }
                     }
                 }
