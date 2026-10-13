@@ -137,7 +137,7 @@ class AdvancedPatternEngine {
             if (patternHistory[i].isGreen) bullishCount++ else bearishCount++
         }
 
-        val confidence = minOf(50f + (bullishCount * 8), 88f)
+        val confidence = minOf(50f + (bullishCount * 8f), 88f)
 
         return when {
             bullishCount >= 3 -> TradeSignal(
