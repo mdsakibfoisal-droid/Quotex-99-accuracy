@@ -1,94 +1,44 @@
 package com.mdjibon.quotex99.service
 
 import android.app.Service
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
+import android.os.Handler
 import android.os.IBinder
-import android.view.Gravity
-import android.view.MotionEvent
-import android.view.WindowManager
-import android.widget.TextView
+import android.os.Looper
+import android.util.Log
+import com.mdjibon.quotex99.engine.CandleAnalyzer
 
-class FloatingIconService : Service() {
-    private var windowManager: WindowManager? = null
-    private var floatingView: TextView? = null
-    private var isScanning = false
-    private var initialX = 0
-    private var initialY = 0
-    private var initialTouchX = 0f
-    private var initialTouchY = 0f
+/**
+ * Safe scan worker. It must not create trade signals from absent or demo data.
+ * Real screen capture and validated pattern records are not implemented yet.
+ */
+class ScanningService : Service() {
+    private val handler = Handler(Looper.getMainLooper())
+    private val analyzer = CandleAnalyzer()
+    private var scanRunnable: Runnable? = null
+    private var running = false
 
-    override fun onCreate() {
-        super.onCreate()
-        windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        floatingView = TextView(this).apply {
-            text = "Q99"
-            textSize = 15f
-            setTextColor(Color.WHITE)
-            gravity = Gravity.CENTER
-            setPadding(18, 14, 18, 14)
-            setBackgroundColor(Color.parseColor("#1E88E5"))
-            setOnClickListener { toggleScanning() }
-            setOnTouchListener { _, event ->
-                when (event.actionMasked) {
-                    MotionEvent.ACTION_DOWN -> {
-                        initialX = (layoutParams as WindowManager.LayoutParams).x
-                        initialY = (layoutParams as WindowManager.LayoutParams).y
-                        initialTouchX = event.rawX
-                        initialTouchY = event.rawY
-                    }
-                    MotionEvent.ACTION_MOVE -> {
-                        val params = layoutParams as WindowManager.LayoutParams
-                        params.x = initialX + (event.rawX - initialTouchX).toInt()
-                        params.y = initialY + (event.rawY - initialTouchY).toInt()
-                        windowManager?.updateViewLayout(this, params)
-                    }
-                }
-                false
-            }
-            layoutParams = WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                android.graphics.PixelFormat.TRANSLUCENT
-            ).apply {
-                gravity = Gravity.TOP or Gravity.START
-                x = 60
-                y = 220
-            }
-        }
-    }
+    override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        showFloatingIcon()
-        return START_STICKY
-    }
-
-    private fun showFloatingIcon() {
-        if (floatingView?.parent == null) windowManager?.addView(floatingView, floatingView?.layoutParams)
-        updateIconState()
-    }
-
-    private fun toggleScanning() {
-        isScanning = !isScanning
-        updateIconState()
-        if (isScanning) startService(Intent(this, ScanningService::class.java))
-        else stopService(Intent(this, ScanningService::class.java))
-    }
-
-    private fun updateIconState() {
-        floatingView?.apply {
-            setBackgroundColor(if (isScanning) Color.parseColor("#2ECC71") else Color.parseColor("#1E88E5"))
-            text = if (isScanning) "RUN" else "Q99"
+        if (!running) {
+            running = true
+            scanRunnable = object : Runnable {
+                override fun run() {
+                    if (!running) return
+                    val candles = analyzer.detectCandles()
+                    Log.d("ScanningService", "No verified live chart data; candles=${candles.size}; signal=NO SIGNAL")
+                    handler.postDelayed(this, 1200L)
+                }
+            }
+            handler.post(scanRunnable!!)
         }
+        return START_NOT_STICKY
     }
 
     override fun onDestroy() {
-        floatingView?.let { runCatching { windowManager?.removeViewImmediate(it) } }
+        running = false
+        scanRunnable?.let { handler.removeCallbacks(it) }
         super.onDestroy()
     }
-
-    override fun onBind(intent: Intent?): IBinder? = null
 }
