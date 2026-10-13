@@ -1,8 +1,8 @@
-package com.mdjibon.quotex99.engine
+package com.mdjibon.quotex99.model
 
 import com.mdjibon.quotex99.model.PatternRecord
 
-class PatternStore {
+class PatternCatalog {
     val patterns: List<PatternRecord> = listOf(
         PatternRecord(1, "EURUSD", "BUY", "GREEN", "RED", "MEDIUM", "MEDIUM"),
         PatternRecord(2, "EURUSD", "SELL", "RED", "GREEN", "MEDIUM", "MEDIUM"),
