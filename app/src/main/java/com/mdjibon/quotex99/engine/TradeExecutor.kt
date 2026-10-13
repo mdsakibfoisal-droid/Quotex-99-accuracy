@@ -47,18 +47,10 @@ class TradeExecutor(
                 if (executed) {
                     trade.status = TradeStatus.EXECUTED
                     
-                    // Wait for trade to complete (15-60 seconds depending on timeframe)
-                    delay(Constants.TRADE_WINDOW_MS)
-                    
-                    // Check result (would need to parse exit price from Quotex)
-                    val exitPrice = getExitPrice(uiState)
-                    val profit = calculateProfit(trade.direction, entryPrice, exitPrice, tradeAmount)
-                    
-                    trade.exitPrice = exitPrice
-                    trade.profit = profit
-                    trade.profitPercent = (profit / entryPrice) * 100
-                    trade.status = if (profit > 0) TradeStatus.WON else TradeStatus.LOST
-                    trade.closedAt = System.currentTimeMillis()
+                    // Do not fabricate a win/loss: this app does not yet read the
+                    // actual Quotex settlement or exit price. Keep the trade EXECUTED
+                    // until a verified result source is integrated.
+                    trade.status = TradeStatus.EXECUTED
                 }
 
                 executionListener?.invoke(trade)
@@ -112,27 +104,6 @@ class TradeExecutor(
                 false
             }
         }
-    }
-
-    private fun getExitPrice(uiState: QuotexUiState): Double {
-        // In real implementation, this would parse the exit price from Quotex
-        // For now, simulate based on current price movement
-        return uiState.currentPrice + (Math.random() * 10 - 5)
-    }
-
-    private fun calculateProfit(
-        direction: TradeDirection,
-        entryPrice: Double,
-        exitPrice: Double,
-        amount: Int
-    ): Double {
-        val priceDifference = when (direction) {
-            TradeDirection.BUY -> exitPrice - entryPrice
-            TradeDirection.SELL -> entryPrice - exitPrice
-            TradeDirection.HOLD -> 0.0
-        }
-
-        return (priceDifference / entryPrice) * amount
     }
 
     fun setExecutionListener(listener: (TradeResult) -> Unit) {
