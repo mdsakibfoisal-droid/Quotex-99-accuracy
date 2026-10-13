@@ -43,6 +43,7 @@ class FloatingIconService : Service() {
     private var captureEngine: ScreenCaptureEngine? = null
     private var projection: MediaProjection? = null
     private var analysisInProgress = false
+    private var suppressStoppedStatus = false
 
     override fun onCreate() {
         super.onCreate()
@@ -122,6 +123,7 @@ class FloatingIconService : Service() {
         val data = intent?.let { resultData(it) }
         if (resultCode == 0 || data == null) {
             Log.e(tag, "Missing screen-capture consent result")
+            suppressStoppedStatus = true
             publishCaptureStatus(STATUS_FAILED)
             stopSelf()
             return START_NOT_STICKY
@@ -137,6 +139,7 @@ class FloatingIconService : Service() {
             captureEngine = ScreenCaptureEngine(this).also { it.initialize(requireNotNull(projection)) }
         } catch (e: Exception) {
             Log.e(tag, "Screen capture initialization failed", e)
+            suppressStoppedStatus = true
             publishCaptureStatus(STATUS_FAILED)
             stopSelf()
             return START_NOT_STICKY
@@ -145,6 +148,7 @@ class FloatingIconService : Service() {
             if (container?.parent == null) windowManager?.addView(container, container?.layoutParams)
         } catch (e: Exception) {
             Log.e(tag, "Unable to display floating control", e)
+            suppressStoppedStatus = true
             publishCaptureStatus(STATUS_FAILED)
             stopSelf()
             return START_NOT_STICKY
@@ -224,7 +228,7 @@ class FloatingIconService : Service() {
         captureEngine = null
         projection?.let { runCatching { it.stop() } }
         projection = null
-        publishCaptureStatus(STATUS_STOPPED)
+        if (!suppressStoppedStatus) publishCaptureStatus(STATUS_STOPPED)
         analysisExecutor.shutdownNow()
         container?.let { runCatching { windowManager?.removeViewImmediate(it) } }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
