@@ -41,7 +41,7 @@ class CandleAnalyzer {
      * false detections, so callers must not convert them directly to signals.
      */
     fun detectCandles(bitmap: Bitmap): List<CandleInfo> {
-        if (bitmap.width < 20 || bitmap.height < 20) return emptyList()
+        if (bitmap.isRecycled || bitmap.width < 20 || bitmap.height < 20) return emptyList()
         val left = bitmap.width / 10
         val right = bitmap.width * 9 / 10
         val top = bitmap.height / 10
@@ -103,7 +103,12 @@ class CandleAnalyzer {
                 }
             }
             if (red + green < 3 || maxY < minY) return@mapNotNull null
-            val ratio = (maxY - minY + 1).toFloat() / scanHeight
+            val groupWidth = range.last - range.first + 1
+            val groupHeight = maxY - minY + 1
+            // Reject broad chart backgrounds and near-horizontal UI elements;
+            // this is only a basic geometric filter, not validated candle detection.
+            if (groupWidth > bitmap.width / 30 || groupHeight < yStep * 2) return@mapNotNull null
+            val ratio = groupHeight.toFloat() / scanHeight
             val size = when { ratio < 0.025f -> "SMALL"; ratio < 0.07f -> "MEDIUM"; else -> "LARGE" }
             CandleInfo(0, if (green > red) "GREEN_CANDIDATE" else "RED_CANDIDATE", size, "UNKNOWN", "UNKNOWN")
         }
