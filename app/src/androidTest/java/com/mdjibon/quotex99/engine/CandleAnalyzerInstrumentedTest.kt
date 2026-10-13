@@ -21,6 +21,17 @@ class CandleAnalyzerInstrumentedTest {
     }
 
     @Test
+    fun unrelatedBlueAndGrayPixelsDoNotProduceCandidates() {
+        val bitmap = Bitmap.createBitmap(240, 160, Bitmap.Config.ARGB_8888)
+        try {
+            bitmap.eraseColor(Color.rgb(90, 110, 130))
+            assertTrue(CandleAnalyzer().detectCandles(bitmap).isEmpty())
+        } finally {
+            bitmap.recycle()
+        }
+    }
+
+    @Test
     fun legacyNoFrameEntryPointReturnsNoCandidates() {
         assertTrue(CandleAnalyzer().detectCandles().isEmpty())
     }
