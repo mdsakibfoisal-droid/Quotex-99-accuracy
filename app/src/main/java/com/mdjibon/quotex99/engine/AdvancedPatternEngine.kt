@@ -163,6 +163,11 @@ class AdvancedPatternEngine {
         val previous = priceHistory[priceHistory.size - 2]
         val older = priceHistory[priceHistory.size - 3]
 
+        // Price feeds may contain zero or invalid values; avoid division by zero
+        // and suppress signals until valid positive prices are available.
+        if (!current.isFinite() || !previous.isFinite() || !older.isFinite() ||
+            current <= 0.0 || previous <= 0.0 || older <= 0.0) return null
+
         val currentChange = ((current - previous) / previous) * 100
         val previousChange = ((previous - older) / older) * 100
 
@@ -193,6 +198,7 @@ class AdvancedPatternEngine {
         if (priceHistory.size < 10) return null
 
         val current = uiState.currentPrice
+        if (!current.isFinite() || current <= 0.0) return null
         val candle = uiState.currentCandle ?: return null
 
         // Find support (local minimum) and resistance (local maximum)
