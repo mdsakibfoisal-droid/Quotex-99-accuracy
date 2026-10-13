@@ -18,29 +18,36 @@ data class PatternSignature(
     val patterns: List<String>
 )
 
+/**
+ * Live chart extraction is not implemented yet.
+ * Fail closed: never manufacture candles or a pattern signal from demo values.
+ */
 class CandleAnalyzer {
-    private val TAG = "CandleAnalyzer"
-    
+    private val tag = "CandleAnalyzer"
+
     fun detectCandles(): List<CandleInfo> {
-        // In production, this would analyze the live chart screenshot
-        // For now, return demo candles that can be matched against patterns
-        
-        // Example: detect candles from current chart state
-        return listOf(
-            CandleInfo(1, "GREEN", "MEDIUM", "MEDIUM", "SMALL", "EURUSD"),
-            CandleInfo(2, "RED", "MEDIUM", "SMALL", "MEDIUM", "EURUSD")
-        )
+        Log.w(tag, "Live chart candle detection is not implemented; no candles returned")
+        return emptyList()
     }
 
     fun createPatternSignature(candles: List<CandleInfo>): PatternSignature {
-        val first = candles.firstOrNull() ?: CandleInfo(1, "GREEN", "MEDIUM", "MEDIUM", "SMALL", "EURUSD")
-        val second = candles.getOrNull(1) ?: CandleInfo(2, "RED", "MEDIUM", "SMALL", "MEDIUM", "EURUSD")
-        return PatternSignature(first, second, "REVERSAL", listOf("bullish", "retracement"))
+        require(candles.size >= 2) {
+            "At least two real, detected candles are required to create a pattern signature"
+        }
+        return PatternSignature(
+            candle1 = candles[candles.size - 2],
+            candle2 = candles[candles.size - 1],
+            trend = "UNKNOWN",
+            patterns = emptyList()
+        )
     }
 
     fun analyzeChartImage(chartBytes: ByteArray?): List<CandleInfo>? {
-        // Analyzes chart image and extracts candles
-        // Returns list of detected candles or null if analysis fails
-        return detectCandles()
+        if (chartBytes.isNullOrEmpty()) {
+            Log.w(tag, "No chart image supplied")
+        } else {
+            Log.w(tag, "Chart-image candle extraction is not implemented; refusing to invent candle data")
+        }
+        return null
     }
 }
