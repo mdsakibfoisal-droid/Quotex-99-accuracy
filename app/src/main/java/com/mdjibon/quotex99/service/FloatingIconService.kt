@@ -124,6 +124,9 @@ class FloatingIconService : Service() {
         try {
             enterForeground()
             val manager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+            // Release any previous session before accepting a fresh user-approved session.
+            runCatching { captureEngine?.release() }
+            captureEngine = null
             projection?.let { runCatching { it.stop() } }
             projection = manager.getMediaProjection(resultCode, data)
             captureEngine = ScreenCaptureEngine(this).also { it.initialize(requireNotNull(projection)) }
@@ -156,6 +159,14 @@ class FloatingIconService : Service() {
         scanTask = object : Runnable {
             override fun run() {
                 if (!scanning) return
+                if (captureEngine?.isCapturing() != true) {
+                    scanning = false
+                    signalView?.text = "Q99"
+                    signalView?.setBackgroundColor(Color.rgb(30, 136, 229))
+                    statusView?.text = "Capture stopped — tap Start in app"
+                    scanTask = null
+                    return
+                }
                 // Never queue an unbounded backlog of full-screen bitmap analyses.
                 if (!analysisInProgress) {
                     val frame = runCatching { captureEngine?.captureFrame() }.getOrNull()
@@ -197,6 +208,7 @@ class FloatingIconService : Service() {
         scanTask?.let { handler.removeCallbacks(it) }
         runCatching { captureEngine?.release() }
         captureEngine = null
+        projection?.let { runCatching { it.stop() } }
         projection = null
         analysisExecutor.shutdownNow()
         container?.let { runCatching { windowManager?.removeViewImmediate(it) } }
