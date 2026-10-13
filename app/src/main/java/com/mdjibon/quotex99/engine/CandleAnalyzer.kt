@@ -49,13 +49,18 @@ class CandleAnalyzer {
         val scanHeight = bottom - top
         if (right <= left || scanHeight <= 0) return emptyList()
 
+        // Sample rows to reduce CPU work on full-screen phone captures.
+        val yStep = max(1, scanHeight / 240)
+        val sampledRows = ((scanHeight - 1) / yStep) + 1
         val columns = BooleanArray(right - left)
         for (x in left until right) {
             var count = 0
-            for (y in top until bottom) {
+            var y = top
+            while (y < bottom) {
                 if (isCandleColor(bitmap.getPixel(x, y))) count++
+                y += yStep
             }
-            columns[x - left] = count >= max(2, scanHeight / 180)
+            columns[x - left] = count >= max(2, sampledRows / 180)
         }
 
         var i = 0
@@ -86,13 +91,15 @@ class CandleAnalyzer {
             var maxY = top
             for (offset in range) {
                 val x = left + offset
-                for (y in top until bottom) {
+                var y = top
+                while (y < bottom) {
                     val pixel = bitmap.getPixel(x, y)
                     if (isCandleColor(pixel)) {
                         if (isRed(pixel)) red++ else green++
                         minY = minOf(minY, y)
                         maxY = maxOf(maxY, y)
                     }
+                    y += yStep
                 }
             }
             if (red + green < 3 || maxY < minY) return@mapNotNull null
