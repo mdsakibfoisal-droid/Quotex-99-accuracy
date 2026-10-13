@@ -2,6 +2,7 @@ package com.mdjibon.quotex99.engine
 
 import com.mdjibon.quotex99.data.*
 import kotlin.math.abs
+import kotlin.math.min
 
 class AdvancedPatternEngine {
 
@@ -88,8 +89,8 @@ class AdvancedPatternEngine {
 
     private fun calculateEngulfingConfidence(current: CandleData, previous: CandleData): Float {
         val bodyRatio = (current.body / maxOf(previous.body, 0.1)).toFloat()
-        val sizeBonus = minOf((bodyRatio - 0.8f) * 50f, 25f)
-        return minOf(75f + sizeBonus, 95f)
+        val sizeBonus: Float = min((bodyRatio - 0.8f) * 50f, 25f)
+        return min(75f + sizeBonus, 95f)
     }
 
     private fun detectPinBarPattern(uiState: QuotexUiState): TradeSignal? {
