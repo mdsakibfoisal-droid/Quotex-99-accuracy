@@ -26,12 +26,39 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var database: TradeDatabase
     private var isServiceRunning = false
+    private var captureStatusReceiverRegistered = false
+
+    private val captureStatusReceiver = object : android.content.BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context?, intent: Intent?) {
+            when (intent?.getStringExtra(FloatingIconService.EXTRA_CAPTURE_STATUS)) {
+                FloatingIconService.STATUS_READY -> {
+                    binding.statusText.text = "Screen capture ready"
+                    binding.startButton.isEnabled = false
+                    binding.stopButton.isEnabled = true
+                    isServiceRunning = true
+                }
+                FloatingIconService.STATUS_FAILED -> {
+                    binding.statusText.text = "Screen capture failed"
+                    binding.startButton.isEnabled = true
+                    binding.stopButton.isEnabled = false
+                    isServiceRunning = false
+                    Toast.makeText(this@MainActivity, "Screen capture could not start. Please try again.", Toast.LENGTH_LONG).show()
+                }
+                FloatingIconService.STATUS_STOPPED -> {
+                    binding.statusText.text = "Screen capture stopped"
+                    binding.startButton.isEnabled = true
+                    binding.stopButton.isEnabled = false
+                    isServiceRunning = false
+                }
+            }
+        }
+    }
 
     private val screenCaptureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         val data = result.data
         if (result.resultCode == RESULT_OK && data != null) {
             if (startFloatingService(result.resultCode, data)) {
-                binding.statusText.text = "Screen capture requested"
+                binding.statusText.text = "Starting screen capture…"
                 binding.startButton.isEnabled = false
                 binding.stopButton.isEnabled = true
                 isServiceRunning = true
@@ -43,6 +70,23 @@ class MainActivity : AppCompatActivity() {
             binding.statusText.text = "Screen capture permission denied"
             Toast.makeText(this, "Allow screen capture to scan chart frames", Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (!captureStatusReceiverRegistered) {
+            val filter = android.content.IntentFilter(FloatingIconService.ACTION_CAPTURE_STATUS)
+            ContextCompat.registerReceiver(this, captureStatusReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED)
+            captureStatusReceiverRegistered = true
+        }
+    }
+
+    override fun onStop() {
+        if (captureStatusReceiverRegistered) {
+            unregisterReceiver(captureStatusReceiver)
+            captureStatusReceiverRegistered = false
+        }
+        super.onStop()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
