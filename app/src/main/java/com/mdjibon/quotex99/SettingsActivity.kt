@@ -30,7 +30,7 @@ class SettingsActivity : AppCompatActivity() {
         binding.scanIntervalInput.setText(prefs.getFloat(Constants.KEY_SCAN_INTERVAL, 1f).toString())
         binding.notificationToggle.isChecked = prefs.getBoolean(Constants.KEY_NOTIFICATIONS, true)
         binding.vibrationToggle.isChecked = prefs.getBoolean(Constants.KEY_VIBRATION, true)
-        binding.autoTradeToggle.isChecked = prefs.getBoolean(Constants.KEY_AUTO_TRADE, true)
+        binding.autoTradeToggle.isChecked = prefs.getBoolean(Constants.KEY_AUTO_TRADE, false)
 
         // Save button
         binding.saveSettingsButton.setOnClickListener {
