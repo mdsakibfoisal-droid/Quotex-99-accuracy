@@ -98,16 +98,27 @@ class FloatingIconService : Service() {
             }
         }
         signalView = TextView(this).apply {
-            text = "Q99"; textSize = 22f; setTextColor(Color.WHITE); gravity = Gravity.CENTER
-            setPadding(18, 14, 18, 14); setBackgroundColor(Color.rgb(30, 136, 229))
+            text = "TRD"; textSize = 16f; setTextColor(Color.WHITE); gravity = Gravity.CENTER
+            setPadding(0, 0, 0, 0); setBackgroundResource(android.R.drawable.btn_default)
+            backgroundTintList = android.content.res.ColorStateList.valueOf(Color.BLACK)
+            layoutParams = FrameLayout.LayoutParams(dp(64), dp(64), Gravity.CENTER)
+            elevation = dp(8).toFloat()
+            // Round, high-contrast black floating control.
+            background = android.graphics.drawable.GradientDrawable().apply {
+                shape = android.graphics.drawable.GradientDrawable.OVAL
+                setColor(Color.BLACK)
+                setStroke(dp(2), Color.WHITE)
+            }
         }
         statusView = TextView(this).apply {
-            text = "Ready"; textSize = 12f; setTextColor(Color.WHITE); gravity = Gravity.CENTER
-            setPadding(8, 7, 8, 7); setBackgroundColor(Color.rgb(38, 50, 56))
+            text = "READY"; textSize = 11f; setTextColor(Color.WHITE); gravity = Gravity.CENTER
+            setPadding(dp(6), dp(4), dp(6), dp(4)); setBackgroundColor(Color.BLACK)
         }
-        container?.addView(signalView, FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.TOP))
-        container?.addView(statusView, FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM))
+        container?.addView(signalView, FrameLayout.LayoutParams(dp(64), dp(64), Gravity.TOP or Gravity.CENTER_HORIZONTAL))
+        container?.addView(statusView, FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL))
     }
+
+    private fun dp(value: Int): Int = (value * resources.displayMetrics.density).toInt()
 
     @Suppress("DEPRECATION")
     private fun resultData(intent: Intent): Intent? =
@@ -153,7 +164,12 @@ class FloatingIconService : Service() {
             stopSelf()
             return START_NOT_STICKY
         }
-        statusView?.text = "Capture ready"
+        statusView?.text = "SCANNING"
+        scanning = true
+        signalView?.text = "TRD"
+        signalView?.setTextColor(Color.WHITE)
+        signalView?.background = android.graphics.drawable.GradientDrawable().apply { shape = android.graphics.drawable.GradientDrawable.OVAL; setColor(Color.BLACK); setStroke(dp(2), Color.WHITE) }
+        startScanLoop()
         publishCaptureStatus(STATUS_READY)
         return START_NOT_STICKY
     }
@@ -161,15 +177,14 @@ class FloatingIconService : Service() {
     private fun toggleScanning() {
         scanning = !scanning
         if (scanning) {
-            signalView?.text = "SCANNING"
-            signalView?.setBackgroundColor(Color.DKGRAY)
-            statusView?.text = "Waiting for chart frame"
+            signalView?.text = "TRD"
+            statusView?.text = "SCANNING"
             startScanLoop()
         } else {
             scanTask?.let { handler.removeCallbacks(it) }
-            signalView?.text = "Q99"
-            signalView?.setBackgroundColor(Color.rgb(30, 136, 229))
-            statusView?.text = "Stopped"
+            signalView?.text = "TRD"
+            statusView?.background = android.graphics.drawable.GradientDrawable().apply { shape = android.graphics.drawable.GradientDrawable.OVAL; setColor(Color.BLACK); setStroke(dp(2), Color.WHITE) }
+            statusView?.text = "STOPPED"
         }
     }
 
@@ -179,8 +194,7 @@ class FloatingIconService : Service() {
                 if (!scanning) return
                 if (captureEngine?.isCapturing() != true) {
                     scanning = false
-                    signalView?.text = "Q99"
-                    signalView?.setBackgroundColor(Color.rgb(30, 136, 229))
+                    signalView?.text = "TRD"
                     statusView?.text = "Capture stopped — tap Start in app"
                     scanTask = null
                     return
@@ -202,9 +216,9 @@ class FloatingIconService : Service() {
                                 }
                                 handler.post {
                                     if (scanning) {
-                                        signalView?.text = "NO SIGNAL"
-                                        signalView?.setBackgroundColor(Color.DKGRAY)
-                                        statusView?.text = if (count >= 2) "Candidates: $count (unverified)" else "No verified candles"
+                                        signalView?.text = "TRD"
+                                        signalView?.background = android.graphics.drawable.GradientDrawable().apply { shape = android.graphics.drawable.GradientDrawable.OVAL; setColor(Color.BLACK); setStroke(dp(2), Color.WHITE) }
+                                        statusView?.text = if (count >= 2) "CANDIDATE $count · UNVERIFIED" else "NO SIGNAL"
                                     }
                                 }
                             }

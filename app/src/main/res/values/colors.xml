@@ -3,10 +3,10 @@
     <color name="primary">#1E88E5</color>
     <color name="primary_dark">#1565C0</color>
     <color name="secondary">#FFB300</color>
-    <color name="background">#F5F7FA</color>
-    <color name="surface">#FFFFFF</color>
-    <color name="text_primary">#1F2937</color>
-    <color name="text_secondary">#6B7280</color>
+    <color name="background">#000000</color>
+    <color name="surface">#121212</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#E0E0E0</color>
     <color name="success">#16A34A</color>
     <color name="warning">#F59E0B</color>
     <color name="danger">#DC2626</color>
