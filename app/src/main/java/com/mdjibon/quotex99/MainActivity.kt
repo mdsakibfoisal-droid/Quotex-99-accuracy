@@ -2,6 +2,7 @@ package com.mdjibon.quotex99
 
 import android.Manifest
 import android.content.Intent
+import android.media.projection.MediaProjectionManager
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.activity.result.contract.ActivityResultContracts
 import com.mdjibon.quotex99.accessibility.QuotexAccessibilityService
 import com.mdjibon.quotex99.database.Trade
 import com.mdjibon.quotex99.database.TradeDatabase
@@ -24,6 +26,68 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var database: TradeDatabase
     private var isServiceRunning = false
+    private var captureStatusReceiverRegistered = false
+
+    private val captureStatusReceiver = object : android.content.BroadcastReceiver() {
+        override fun onReceive(context: android.content.Context?, intent: Intent?) {
+            when (intent?.getStringExtra(FloatingIconService.EXTRA_CAPTURE_STATUS)) {
+                FloatingIconService.STATUS_READY -> {
+                    binding.statusText.text = "Screen capture ready"
+                    binding.startButton.isEnabled = false
+                    binding.stopButton.isEnabled = true
+                    isServiceRunning = true
+                }
+                FloatingIconService.STATUS_FAILED -> {
+                    binding.statusText.text = "Screen capture failed"
+                    binding.startButton.isEnabled = true
+                    binding.stopButton.isEnabled = false
+                    isServiceRunning = false
+                    Toast.makeText(this@MainActivity, "Screen capture could not start. Please try again.", Toast.LENGTH_LONG).show()
+                }
+                FloatingIconService.STATUS_STOPPED -> {
+                    binding.statusText.text = "Screen capture stopped"
+                    binding.startButton.isEnabled = true
+                    binding.stopButton.isEnabled = false
+                    isServiceRunning = false
+                }
+            }
+        }
+    }
+
+    private val screenCaptureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        val data = result.data
+        if (result.resultCode == RESULT_OK && data != null) {
+            if (startFloatingService(result.resultCode, data)) {
+                binding.statusText.text = "Starting screen capture…"
+                binding.startButton.isEnabled = false
+                binding.stopButton.isEnabled = true
+                isServiceRunning = true
+            } else {
+                binding.statusText.text = "Could not start capture service"
+                Toast.makeText(this, "Could not start screen capture. Please try again.", Toast.LENGTH_LONG).show()
+            }
+        } else {
+            binding.statusText.text = "Screen capture permission denied"
+            Toast.makeText(this, "Allow screen capture to scan chart frames", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (!captureStatusReceiverRegistered) {
+            val filter = android.content.IntentFilter(FloatingIconService.ACTION_CAPTURE_STATUS)
+            ContextCompat.registerReceiver(this, captureStatusReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED)
+            captureStatusReceiverRegistered = true
+        }
+    }
+
+    override fun onStop() {
+        if (captureStatusReceiverRegistered) {
+            unregisterReceiver(captureStatusReceiver)
+            captureStatusReceiverRegistered = false
+        }
+        super.onStop()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,36 +102,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun requestPermissions() {
-        val permissions = mutableListOf<String>(
-            Manifest.permission.SYSTEM_ALERT_WINDOW,
-            Manifest.permission.FOREGROUND_SERVICE
-        )
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            permissions.add(Manifest.permission.POST_NOTIFICATIONS)
-        }
-
-        val permissionsToRequest = permissions.filter {
-            ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
-        }.toTypedArray()
-
-        if (permissionsToRequest.isNotEmpty()) {
-            ActivityCompat.requestPermissions(this, permissionsToRequest, PERMISSION_REQUEST_CODE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), PERMISSION_REQUEST_CODE)
         }
     }
 
     private fun setupUI() {
         binding.startButton.setOnClickListener {
-            if (PermissionManager.hasOverlayPermission(this)) {
-                startFloatingService()
-                binding.statusText.text = "✅ Scanning Active"
-                binding.startButton.isEnabled = false
-                binding.stopButton.isEnabled = true
-                isServiceRunning = true
-            } else {
+            if (!PermissionManager.hasOverlayPermission(this)) {
                 PermissionManager.requestOverlayPermission(this)
-                Toast.makeText(this, "Please enable overlay permission", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Enable overlay permission, then tap Start again", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }
+            val manager = getSystemService(MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+            screenCaptureLauncher.launch(manager.createScreenCaptureIntent())
         }
 
         binding.stopButton.setOnClickListener {
@@ -89,12 +137,17 @@ class MainActivity : AppCompatActivity() {
         binding.stopButton.isEnabled = false
     }
 
-    private fun startFloatingService() {
-        val intent = Intent(this, FloatingIconService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(intent)
-        } else {
-            startService(intent)
+    private fun startFloatingService(resultCode: Int, resultData: Intent): Boolean {
+        val intent = Intent(this, FloatingIconService::class.java).apply {
+            putExtra(FloatingIconService.EXTRA_RESULT_CODE, resultCode)
+            putExtra(FloatingIconService.EXTRA_RESULT_DATA, resultData)
+        }
+        return try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent) else startService(intent)
+            true
+        } catch (e: Exception) {
+            android.util.Log.e("MainActivity", "Unable to start screen-capture service", e)
+            false
         }
     }
 
