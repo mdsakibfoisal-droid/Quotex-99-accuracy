@@ -2,6 +2,7 @@ package com.mdjibon.quotex99.engine
 
 import com.mdjibon.quotex99.data.*
 import kotlin.math.abs
+import kotlin.math.min
 
 class AdvancedPatternEngine {
 
@@ -87,9 +88,9 @@ class AdvancedPatternEngine {
     }
 
     private fun calculateEngulfingConfidence(current: CandleData, previous: CandleData): Float {
-        val bodyRatio = current.body / maxOf(previous.body, 0.1)
-        val sizeBonus = minOf((bodyRatio - 0.8f) * 50, 25f)
-        return minOf(75f + sizeBonus, 95f)
+        val bodyRatio = (current.body / maxOf(previous.body, 0.1)).toFloat()
+        val sizeBonus: Float = min((bodyRatio - 0.8f) * 50f, 25f)
+        return min(75f + sizeBonus, 95f)
     }
 
     private fun detectPinBarPattern(uiState: QuotexUiState): TradeSignal? {
@@ -137,7 +138,7 @@ class AdvancedPatternEngine {
             if (patternHistory[i].isGreen) bullishCount++ else bearishCount++
         }
 
-        val confidence = minOf(50f + (bullishCount * 8), 88f)
+        val confidence = minOf(50f + (bullishCount * 8f), 88f)
 
         return when {
             bullishCount >= 3 -> TradeSignal(
@@ -162,6 +163,11 @@ class AdvancedPatternEngine {
         val current = priceHistory.last()
         val previous = priceHistory[priceHistory.size - 2]
         val older = priceHistory[priceHistory.size - 3]
+
+        // Price feeds may contain zero or invalid values; avoid division by zero
+        // and suppress signals until valid positive prices are available.
+        if (!current.isFinite() || !previous.isFinite() || !older.isFinite() ||
+            current <= 0.0 || previous <= 0.0 || older <= 0.0) return null
 
         val currentChange = ((current - previous) / previous) * 100
         val previousChange = ((previous - older) / older) * 100
@@ -193,6 +199,7 @@ class AdvancedPatternEngine {
         if (priceHistory.size < 10) return null
 
         val current = uiState.currentPrice
+        if (!current.isFinite() || current <= 0.0) return null
         val candle = uiState.currentCandle ?: return null
 
         // Find support (local minimum) and resistance (local maximum)
