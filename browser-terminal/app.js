@@ -16,9 +16,11 @@
   terminal.addEventListener("click", event => {
     if (terminal.classList.contains("collapsed")) {
       terminal.classList.remove("collapsed");
+      event.preventDefault();
       event.stopPropagation();
     }
   });
+  $("minimize").addEventListener("click", event => { event.preventDefault(); event.stopPropagation(); minimize(); });
   $("minimize").addEventListener("click", minimize);
   $("minimize-hint").addEventListener("click", minimize);
   $("key").addEventListener("click", () => {
