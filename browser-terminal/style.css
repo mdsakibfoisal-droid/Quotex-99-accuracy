@@ -34,3 +34,9 @@ input{width:calc(100% - 22px);height:37px;margin:0 11px;padding:0 10px;border-ra
 .terminal.collapsed .brand-copy,.terminal.collapsed #key,.terminal.collapsed #minimize{display:none!important}
 .terminal.collapsed #panel{display:none!important}
 @media(max-width:350px){.terminal{width:100%}.top h1{font-size:12px}}
+
+/* Final compact, draggable in-page floating launcher */
+#key{display:none!important}
+.terminal.collapsed{touch-action:none;user-select:none;-webkit-user-select:none}
+.terminal.collapsed .top{pointer-events:none}
+.terminal.collapsed .logo{pointer-events:none}

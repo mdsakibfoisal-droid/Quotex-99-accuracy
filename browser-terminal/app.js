@@ -13,19 +13,46 @@
     setStatus(message);
   }
   function minimize() { terminal.classList.add("collapsed"); }
-  terminal.addEventListener("click", event => {
-    if (terminal.classList.contains("collapsed")) {
-      terminal.classList.remove("collapsed");
-      event.preventDefault();
-      event.stopPropagation();
+  $("minimize").addEventListener("click", event => {
+    event.preventDefault();
+    event.stopPropagation();
+    minimize();
+  });
+  $("minimize-hint").addEventListener("click", minimize);
+  let drag = null;
+  let dragged = false;
+  terminal.addEventListener("pointerdown", event => {
+    if (!terminal.classList.contains("collapsed")) return;
+    drag = { x: event.clientX, y: event.clientY, left: terminal.getBoundingClientRect().left, top: terminal.getBoundingClientRect().top };
+    dragged = false;
+    terminal.setPointerCapture?.(event.pointerId);
+    event.preventDefault();
+  });
+  terminal.addEventListener("pointermove", event => {
+    if (!drag || !terminal.classList.contains("collapsed")) return;
+    const dx = event.clientX - drag.x, dy = event.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 5) dragged = true;
+    if (dragged) {
+      const x = Math.max(0, Math.min(window.innerWidth - terminal.offsetWidth, drag.left + dx));
+      const y = Math.max(0, Math.min(window.innerHeight - terminal.offsetHeight, drag.top + dy));
+      terminal.style.left = x + "px";
+      terminal.style.top = y + "px";
+      terminal.style.right = "auto";
+      terminal.style.bottom = "auto";
     }
   });
-  $("minimize").addEventListener("click", event => { event.preventDefault(); event.stopPropagation(); minimize(); });
-  $("minimize").addEventListener("click", minimize);
-  $("minimize-hint").addEventListener("click", minimize);
-  $("key").addEventListener("click", () => {
-    const notice = $("notice");
-    notice.style.display = notice.style.display === "block" ? "none" : "block";
+  terminal.addEventListener("pointerup", () => { drag = null; });
+  terminal.addEventListener("pointercancel", () => { drag = null; });
+  terminal.addEventListener("click", event => {
+    if (!terminal.classList.contains("collapsed")) return;
+    if (dragged) { dragged = false; event.preventDefault(); event.stopPropagation(); return; }
+    terminal.classList.remove("collapsed");
+    terminal.style.left = "";
+    terminal.style.top = "";
+    terminal.style.right = "";
+    terminal.style.bottom = "";
+    event.preventDefault();
+    event.stopPropagation();
   });
   document.querySelectorAll("[data-seconds]").forEach(button => button.addEventListener("click", () => {
     duration.value = button.dataset.seconds;
