@@ -12,7 +12,13 @@
     stopButton.disabled = true;
     setStatus(message);
   }
-  function minimize() { terminal.classList.toggle("collapsed"); }
+  function minimize() { terminal.classList.add("collapsed"); }
+  terminal.addEventListener("click", event => {
+    if (terminal.classList.contains("collapsed")) {
+      terminal.classList.remove("collapsed");
+      event.stopPropagation();
+    }
+  });
   $("minimize").addEventListener("click", minimize);
   $("minimize-hint").addEventListener("click", minimize);
   $("key").addEventListener("click", () => {
