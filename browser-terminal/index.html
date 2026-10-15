@@ -2,33 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#000000">
-<title>CB Round Terminal — Demo</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071321">
+<title>CB Traders BD — Round Terminal Demo</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="terminal" id="terminal">
   <header class="top">
-    <button class="brand" id="minimize" aria-label="Minimize panel">CB</button>
-    <div><h1>CB TRADERS BD</h1><p>ROUND TERMINAL · DEMO</p></div>
-    <span class="live"><i></i> LOCAL</span>
+    <div class="logo" aria-hidden="true">CB</div>
+    <div class="brand-copy"><h1>CB TRADERS BD</h1><p><i></i> ROUND TERMINAL FREE BOT</p></div>
+    <button class="head-button" id="key" aria-label="About this demo" title="About this demo">⚿</button>
+    <button class="head-button minimize" id="minimize" aria-label="Minimize panel" title="Minimize">—</button>
   </header>
   <section id="panel">
-    <div class="market"><span>MARKET / CHART</span><strong>DEMO ONLY</strong></div>
-    <label for="target">ROUND NUMBER / TARGET</label>
-    <input id="target" inputmode="decimal" value="1.88410" autocomplete="off">
-    <label for="duration">TIME (SECONDS)</label>
-    <input id="duration" type="number" min="1" max="300" value="5">
-    <div class="presets" aria-label="Preset duration">
-      <button data-seconds="5">5s</button><button data-seconds="6">6s</button><button data-seconds="10">10s</button><button data-seconds="15">15s</button><button data-seconds="30">30s</button>
+    <div class="asset">
+      <div><span class="eyebrow">⚙ MARKET ASSET</span><strong>GBP/CAD <b>(REAL)</b></strong></div>
+      <span class="live"><i></i> LIVE</span>
+      <span class="spark" aria-hidden="true">⌁</span>
     </div>
-    <div class="actions"><button id="start" class="primary">START</button><button id="stop">STOP</button></div>
-    <div class="status"><span>STATUS</span><strong id="status">STANDBY</strong></div>
-    <div class="status"><span>DEMO VALUE</span><strong id="value">1.88410</strong></div>
-    <div class="status"><span>TIME LEFT</span><strong id="left">—</strong></div>
-    <div class="status"><span>INTERCEPTS</span><strong id="intercepts">0</strong></div>
-    <p class="notice">Standalone demo: this page does not connect to Quotex, alter live prices, or place trades.</p>
+    <label for="target">ROUND NUMBER</label>
+    <input id="target" inputmode="decimal" placeholder="Enter round number" autocomplete="off" aria-label="Round number">
+    <label for="duration">TIME (SECOND)</label>
+    <input id="duration" type="number" min="1" max="300" placeholder="Select time below" autocomplete="off" aria-label="Time in seconds">
+    <div class="presets" aria-label="Select duration">
+      <button type="button" data-seconds="5">5s</button><button type="button" data-seconds="6">6s</button><button type="button" data-seconds="10">10s</button><button type="button" data-seconds="15">15s</button><button type="button" data-seconds="30">30s</button>
+    </div>
+    <div class="actions"><button id="start" class="primary" type="button">START</button><button id="stop" type="button" disabled>STOP</button></div>
+    <div class="footer-status"><span class="standby"><i></i><strong id="status">STANDBY</strong></span><strong class="intercepts">INTERCEPTS: <span id="intercepts">0</span></strong></div>
+    <button type="button" class="minimize-hint" id="minimize-hint">[ ◆ TAP LOGO OR HERE TO MINIMIZE ◆ ]</button>
+    <p class="notice" id="notice">Demo interface only — not connected to Quotex or live price data.</p>
   </section>
 </main>
 <script src="app.js"></script>

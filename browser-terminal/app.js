@@ -2,36 +2,43 @@
   "use strict";
   const $ = id => document.getElementById(id);
   const target = $("target"), duration = $("duration");
-  const status = $("status"), value = $("value"), left = $("left"), count = $("intercepts");
-  let timer = null, endAt = 0, intercepts = 0, previousValue = value.textContent;
+  const status = $("status"), left = $("left"), count = $("intercepts");
+  const terminal = $("terminal"), stopButton = $("stop");
+  let timer = null, endAt = 0, intercepts = 0, activeTarget = "";
   const setStatus = text => { status.textContent = text; };
-  function stop(message = "STOPPED", restore = true) {
+  function stop(message = "STOPPED") {
     if (timer !== null) clearInterval(timer);
     timer = null; endAt = 0; left.textContent = "—";
-    if (restore && previousValue !== "") value.textContent = previousValue;
+    stopButton.disabled = true;
     setStatus(message);
   }
+  function minimize() { terminal.classList.toggle("collapsed"); }
+  $("minimize").addEventListener("click", minimize);
+  $("minimize-hint").addEventListener("click", minimize);
+  $("key").addEventListener("click", () => {
+    const notice = $("notice");
+    notice.style.display = notice.style.display === "block" ? "none" : "block";
+  });
   document.querySelectorAll("[data-seconds]").forEach(button => button.addEventListener("click", () => {
     duration.value = button.dataset.seconds;
     document.querySelectorAll("[data-seconds]").forEach(b => b.classList.toggle("active", b === button));
   }));
-  $("minimize").addEventListener("click", () => $("terminal").classList.toggle("collapsed"));
   $("start").addEventListener("click", () => {
-    if (timer !== null) stop("STANDBY", true);
-    const raw = target.value.trim(), seconds = Number(duration.value), n = Number(raw);
+    if (timer !== null) stop("STANDBY");
+    const raw = target.value.trim();
+    const seconds = Number(duration.value);
+    const n = Number(raw);
     if (!raw || !Number.isFinite(n) || !Number.isFinite(seconds) || seconds < 1 || seconds > 300) {
       setStatus("CHECK INPUT"); return;
     }
-    previousValue = value.textContent;
-    const decimals = Math.min(8, (raw.split(".")[1] || "").length);
-    value.textContent = n.toFixed(decimals);
+    activeTarget = n.toFixed(Math.min(8, (raw.split(".")[1] || "").length));
     endAt = Date.now() + seconds * 1000;
-    setStatus("DEMO RUNNING");
+    stopButton.disabled = false;
+    setStatus("RUNNING");
     const tick = () => {
       const remaining = Math.max(0, endAt - Date.now());
-      left.textContent = (remaining / 1000).toFixed(1) + "s";
       if (remaining <= 0) {
-        stop("COMPLETE", true);
+        stop("COMPLETE");
         intercepts += 1;
         count.textContent = String(intercepts);
       }
