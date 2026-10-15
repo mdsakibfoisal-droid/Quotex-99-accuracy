@@ -6,3 +6,31 @@
 .terminal.collapsed .brand-copy,.terminal.collapsed #key,.terminal.collapsed #minimize{display:none}
 .terminal.collapsed #panel{display:none}
 .terminal.collapsed .top{display:flex}
+
+/* Compact sizing override */
+.terminal{width:min(100%,360px);border-radius:16px 16px 0 0}
+.top{min-height:54px;padding:7px 10px;gap:7px}
+.logo{width:36px;height:36px;flex-basis:36px;font-size:11px}
+.top h1{font-size:13px}
+.top p{font-size:8px;letter-spacing:.75px;margin-top:3px}
+.head-button{width:30px;height:30px;flex-basis:30px;border-radius:8px;font-size:16px}
+.asset{margin:8px 11px 7px;padding:7px 9px;min-height:55px}
+.eyebrow{font-size:9px;margin-bottom:3px}
+.asset strong{font-size:15px}
+.asset strong b{font-size:11px}
+.live{font-size:9px;padding:2px 7px}
+label{margin:7px 11px 3px;font-size:10px}
+input{width:calc(100% - 22px);height:37px;margin:0 11px;padding:0 10px;border-radius:9px;font-size:14px}
+.presets{gap:4px;margin:5px 11px 8px}
+.presets button{height:24px;font-size:11px}
+.actions{gap:7px;margin:0 11px 8px}
+.actions button{height:38px;font-size:14px;border-radius:9px}
+.footer-status{min-height:35px;padding:8px 12px}
+.standby strong,.intercepts{font-size:10px}
+.minimize-hint{padding:7px 4px 8px;font-size:8px;letter-spacing:1px}
+.terminal.collapsed{position:fixed!important;z-index:2147483647!important;right:12px!important;bottom:18px!important;left:auto!important;top:auto!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;margin:0!important;padding:0!important;border-radius:50%!important;border:2px solid #24bfff!important;background:#071321!important;box-shadow:0 0 16px #00aaff66!important;overflow:hidden!important;cursor:pointer!important}
+.terminal.collapsed .top{display:flex!important;width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;margin:0!important;justify-content:center!important;align-items:center!important;gap:0!important;border:0!important;border-radius:50%!important;background:radial-gradient(circle at 35% 25%,#17445d,#06101d 72%)!important}
+.terminal.collapsed .logo{display:grid!important;width:34px!important;height:34px!important;min-width:34px!important;flex:0 0 34px!important;border:1px solid #27c5ff!important;font-size:10px!important}
+.terminal.collapsed .brand-copy,.terminal.collapsed #key,.terminal.collapsed #minimize{display:none!important}
+.terminal.collapsed #panel{display:none!important}
+@media(max-width:350px){.terminal{width:100%}.top h1{font-size:12px}}
