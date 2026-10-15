@@ -1,0 +1,4 @@
+Bookmarklet for a hosted copy (replace YOUR-STATIC-URL with your own HTTPS URL):
+javascript:(()=>{window.open('YOUR-STATIC-URL','_blank','noopener');})();
+
+Note: This opens the independent terminal demo in a new tab. It intentionally does not inject code into or alter a third-party trading page.

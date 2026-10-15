@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>CB Round Terminal — Demo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="terminal" id="terminal">
+  <header class="top">
+    <button class="brand" id="minimize" aria-label="Minimize panel">CB</button>
+    <div><h1>CB TRADERS BD</h1><p>ROUND TERMINAL · DEMO</p></div>
+    <span class="live"><i></i> LOCAL</span>
+  </header>
+  <section id="panel">
+    <div class="market"><span>MARKET / CHART</span><strong>DEMO ONLY</strong></div>
+    <label for="target">ROUND NUMBER / TARGET</label>
+    <input id="target" inputmode="decimal" value="1.88410" autocomplete="off">
+    <label for="duration">TIME (SECONDS)</label>
+    <input id="duration" type="number" min="1" max="300" value="5">
+    <div class="presets" aria-label="Preset duration">
+      <button data-seconds="5">5s</button><button data-seconds="6">6s</button><button data-seconds="10">10s</button><button data-seconds="15">15s</button><button data-seconds="30">30s</button>
+    </div>
+    <div class="actions"><button id="start" class="primary">START</button><button id="stop">STOP</button></div>
+    <div class="status"><span>STATUS</span><strong id="status">STANDBY</strong></div>
+    <div class="status"><span>DEMO VALUE</span><strong id="value">1.88410</strong></div>
+    <div class="status"><span>TIME LEFT</span><strong id="left">—</strong></div>
+    <div class="status"><span>INTERCEPTS</span><strong id="intercepts">0</strong></div>
+    <p class="notice">Standalone demo: this page does not connect to Quotex, alter live prices, or place trades.</p>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
