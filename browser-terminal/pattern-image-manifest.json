@@ -1,10 +1,884 @@
 [
   {
     "id": "img-001",
-    "file": "Screenshot_2026-10-15-20-10-34-74_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "zip_entry_index": 1,
     "transcription_status": "pending",
+    "verified": false,
     "candle_count": null,
     "outcome": "UNVERIFIED",
-    "notes": "Verify drawn candle sequence and handwritten entry arrow before use"
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-002",
+    "zip_entry_index": 2,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-003",
+    "zip_entry_index": 3,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-004",
+    "zip_entry_index": 4,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-005",
+    "zip_entry_index": 5,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-006",
+    "zip_entry_index": 6,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-007",
+    "zip_entry_index": 7,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-008",
+    "zip_entry_index": 8,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-009",
+    "zip_entry_index": 9,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-010",
+    "zip_entry_index": 10,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-011",
+    "zip_entry_index": 11,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-012",
+    "zip_entry_index": 12,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-013",
+    "zip_entry_index": 13,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-014",
+    "zip_entry_index": 14,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-015",
+    "zip_entry_index": 15,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-016",
+    "zip_entry_index": 16,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-017",
+    "zip_entry_index": 17,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-018",
+    "zip_entry_index": 18,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-019",
+    "zip_entry_index": 19,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-020",
+    "zip_entry_index": 20,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-021",
+    "zip_entry_index": 21,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-022",
+    "zip_entry_index": 22,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-023",
+    "zip_entry_index": 23,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-024",
+    "zip_entry_index": 24,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-025",
+    "zip_entry_index": 25,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-026",
+    "zip_entry_index": 26,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-027",
+    "zip_entry_index": 27,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-028",
+    "zip_entry_index": 28,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-029",
+    "zip_entry_index": 29,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-030",
+    "zip_entry_index": 30,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-031",
+    "zip_entry_index": 31,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-032",
+    "zip_entry_index": 32,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-033",
+    "zip_entry_index": 33,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-034",
+    "zip_entry_index": 34,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-035",
+    "zip_entry_index": 35,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-036",
+    "zip_entry_index": 36,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-037",
+    "zip_entry_index": 37,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-038",
+    "zip_entry_index": 38,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-039",
+    "zip_entry_index": 39,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-040",
+    "zip_entry_index": 40,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-041",
+    "zip_entry_index": 41,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-042",
+    "zip_entry_index": 42,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-043",
+    "zip_entry_index": 43,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-044",
+    "zip_entry_index": 44,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-045",
+    "zip_entry_index": 45,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-046",
+    "zip_entry_index": 46,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-047",
+    "zip_entry_index": 47,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-048",
+    "zip_entry_index": 48,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-049",
+    "zip_entry_index": 49,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-050",
+    "zip_entry_index": 50,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-051",
+    "zip_entry_index": 51,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-052",
+    "zip_entry_index": 52,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-053",
+    "zip_entry_index": 53,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-054",
+    "zip_entry_index": 54,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-055",
+    "zip_entry_index": 55,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-056",
+    "zip_entry_index": 56,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-057",
+    "zip_entry_index": 57,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-058",
+    "zip_entry_index": 58,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-059",
+    "zip_entry_index": 59,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-060",
+    "zip_entry_index": 60,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-061",
+    "zip_entry_index": 61,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-062",
+    "zip_entry_index": 62,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-063",
+    "zip_entry_index": 63,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-064",
+    "zip_entry_index": 64,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-065",
+    "zip_entry_index": 65,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-066",
+    "zip_entry_index": 66,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-067",
+    "zip_entry_index": 67,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-068",
+    "zip_entry_index": 68,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-069",
+    "zip_entry_index": 69,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-070",
+    "zip_entry_index": 70,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-071",
+    "zip_entry_index": 71,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-072",
+    "zip_entry_index": 72,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-073",
+    "zip_entry_index": 73,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-074",
+    "zip_entry_index": 74,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-075",
+    "zip_entry_index": 75,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-076",
+    "zip_entry_index": 76,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-077",
+    "zip_entry_index": 77,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-078",
+    "zip_entry_index": 78,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-079",
+    "zip_entry_index": 79,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-080",
+    "zip_entry_index": 80,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-081",
+    "zip_entry_index": 81,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-082",
+    "zip_entry_index": 82,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-083",
+    "zip_entry_index": 83,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-084",
+    "zip_entry_index": 84,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-085",
+    "zip_entry_index": 85,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-086",
+    "zip_entry_index": 86,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-087",
+    "zip_entry_index": 87,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-088",
+    "zip_entry_index": 88,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-089",
+    "zip_entry_index": 89,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-090",
+    "zip_entry_index": 90,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-091",
+    "zip_entry_index": 91,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-092",
+    "zip_entry_index": 92,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-093",
+    "zip_entry_index": 93,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-094",
+    "zip_entry_index": 94,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-095",
+    "zip_entry_index": 95,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-096",
+    "zip_entry_index": 96,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-097",
+    "zip_entry_index": 97,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
+  },
+  {
+    "id": "img-098",
+    "zip_entry_index": 98,
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Review corresponding image in uploaded ZIP at original resolution; record the drawn candle sequence and the exact target candle. Do not activate until independently checked."
   }
 ]
