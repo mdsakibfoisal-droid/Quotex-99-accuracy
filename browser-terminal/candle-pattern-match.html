@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071321"><title>Q99 Candle Pattern Match</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#071321;color:#e8f3ff;font:16px system-ui,sans-serif;padding:14px}.wrap{max-width:720px;margin:auto}.card{background:#102538;border:1px solid #24516b;border-radius:14px;padding:15px;margin:12px 0}h1{font-size:22px;margin:0 0 8px}h2{font-size:18px;margin:0 0 8px}.muted{color:#b8c9d9;font-size:14px;line-height:1.5}.warn{border-color:#b7832e;background:#332713}.good{color:#7de5b0}.bad{color:#ffca85}button,label.file{background:#087fce;color:white;border:0;border-radius:9px;padding:12px;font-weight:700;display:inline-block;margin:4px 0;cursor:pointer}input[type=file]{display:block;width:100%;margin:10px 0}textarea{width:100%;min-height:120px;background:#091724;color:#e8f3ff;border:1px solid #385a70;border-radius:8px;padding:10px;font:13px monospace}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#091724;padding:10px;border-radius:8px}.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1}a{color:#71caff}
+</style></head><body><main class="wrap">
+<h1>Q99 — ক্যান্ডেল প্যাটার্ন ম্যাচার</h1><p class="muted">ভয়েস নেই। এটি সরবরাহ করা OHLC ডেটার সঙ্গে যাচাইকৃত রেফারেন্স প্যাটার্ন তুলনা করে। এই পেজ Quotex-এর সুরক্ষিত লাইভ চার্ট নিজে পড়তে পারে না।</p>
+<div class="card warn"><b>এখনকার অবস্থা</b><p id="status" class="muted">রেফারেন্স প্যাটার্ন ফাইল যোগ করা হয়নি। ZIP-এর আঁকা ছবি থেকে যাচাই করা OHLC নমুনা তৈরি না হওয়া পর্যন্ত কোনো সংকেত দেখানো হবে না।</p></div>
+<div class="card"><h2>১. রেফারেন্স প্যাটার্ন JSON</h2><p class="muted">ZIP-এর ছবি সরাসরি নয়—ছবি থেকে যাচাই করে লেখা candle OHLC/outcome JSON ফাইল আপলোড করুন। প্রতিটি প্যাটার্নে id, label, outcome (UP/DOWN/WAIT), candles দরকার।</p><input id="refsFile" type="file" accept=".json,application/json"><p id="refsInfo" class="muted">কোনো ফাইল নির্বাচিত নয়।</p></div>
+<div class="card"><h2>২. বর্তমান ক্যান্ডেল OHLC JSON</h2><p class="muted">প্রতি ক্যান্ডেলে open, high, low, close দিতে হবে। এখানে বর্তমান চার্ট থেকে স্বয়ংক্রিয় ডেটা নেওয়া হয় না।</p><textarea id="candles" spellcheck="false">[
+  {"open":10,"high":11,"low":9,"close":10.5},
+  {"open":10.5,"high":11.5,"low":10,"close":11},
+  {"open":11,"high":12,"low":10.8,"close":11.7}
+]</textarea><div class="row"><label class="muted">ন্যূনতম মিল (%)<input id="threshold" type="number" min="1" max="100" value="90" style="width:100%;padding:10px;margin-top:5px"></label><button id="match">প্যাটার্ন মিলান</button></div></div>
+<div class="card"><h2>ফলাফল</h2><pre id="result">মিলানোর জন্য অপেক্ষা করছে।</pre></div>
+<div class="card muted">মিলের স্কোর কেবল ক্যান্ডেল-আকৃতির সাদৃশ্য; এটি জেতার সম্ভাবনা নয়। লাইভ ডেটা না থাকলে লাইভ সংকেত হিসেবে ব্যবহার করবেন না। স্বয়ংক্রিয় ট্রেড করা হয় না।</div>
+<script src="candle-pattern-matcher.js"></script><script>
+let refs=[];const $=id=>document.getElementById(id);
+$('refsFile').addEventListener('change',async e=>{try{const f=e.target.files[0];if(!f)return;const data=JSON.parse(await f.text());if(!Array.isArray(data))throw Error('JSON অবশ্যই array হতে হবে');refs=data;$('refsInfo').textContent=refs.length+'টি রেফারেন্স এন্ট্রি লোড হয়েছে।';$('status').textContent='রেফারেন্স লোড হয়েছে; তবে ছবির তথ্য হাতে যাচাই করা হয়েছে কি না নিশ্চিত করুন।'}catch(err){refs=[];$('refsInfo').textContent='ফাইল পড়া যায়নি: '+err.message}});
+$('match').onclick=()=>{try{const candles=JSON.parse($('candles').value);const threshold=Number($('threshold').value);const r=Q99PatternMatcher.match(candles,refs,{threshold});$('result').textContent=JSON.stringify(r,null,2);if(r.status==='MATCH')$('status').textContent='প্যাটার্নের মিল পাওয়া গেছে; ফলাফল নিশ্চিত নয়।';else $('status').textContent=r.reason}catch(e){$('result').textContent='ইনপুট ভুল: '+e.message}};
+</script></main></body></html>
