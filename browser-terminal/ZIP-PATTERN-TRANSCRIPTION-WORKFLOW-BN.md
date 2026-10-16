@@ -33,3 +33,11 @@ A pattern that looks the same is not proof that the next candle will move the sa
 
 ## Live chart
 The standalone matcher currently receives candles from manual JSON. No authorized live Quotex OHLC feed or documented page interface has been confirmed. Do not claim the Android Chrome page can see protected canvas pixels or hidden chart data. Integrate only a documented, permitted data source; otherwise display "লাইভ ডেটা পাওয়া যায়নি".
+
+
+## Current implementation checkpoint
+- The archive was inspected and contains 98 image files. All 98 have now been indexed as pending review in `pattern-image-manifest.json`.
+- None is marked verified. The contact sheets are useful for triage, but not enough to safely encode every candle body/wick and the exact future target/outcome.
+- The matcher now accepts either numeric OHLC records or normalized candle-shape records (`dir`, `body`, `upper`, `lower`). These normalized values still must be transcribed and reviewed from original-resolution images.
+- The matching page no longer starts with made-up example candles. It requires user-supplied data and verified reference patterns.
+- Live Quotex OHLC is still not connected. Do not label manual JSON comparisons as live chart analysis.
