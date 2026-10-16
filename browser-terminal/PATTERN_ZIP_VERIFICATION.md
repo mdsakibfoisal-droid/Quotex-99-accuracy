@@ -15,3 +15,15 @@ The manifest entries currently have `verified: false` and `transcription_status:
 
 ## Required fields for an active reference
 `id`, `label`, `source`, `verified: true`, `outcome: UP|DOWN|WAIT`, `candles`, and review evidence. Only use `verified: true` after the review is complete. Keep the source image in the audit set.
+
+
+## Cross-OTC shape-matching requirement
+
+The requested scope is to search for the same normalized candle geometry across OTC instruments. Instrument identity may vary, but pattern geometry must not be treated as proof of the same future outcome.
+
+- Compare each candle's direction, normalized body, upper wick, and lower wick, plus left-to-right sequence.
+- Normalize dimensions to each candle's own high-low range so price scale and quote level do not affect geometric matching.
+- Use a strict threshold for the requested "near-identical" mode; return WAIT when any required candle is missing, chart pixels are unreadable, or the image transcription is ambiguous.
+- Keep the pattern's intended UP/DOWN label separate from shape transcription. Do not activate a pattern unless its direction is explicitly readable and independently reviewed.
+- A match means shape similarity only, not a guarantee of profitable OTC behavior. Different OTC instruments can generate similar shapes with different outcomes.
+- The current Android Chrome diagnostic only inspects page elements; it does not yet extract candle geometry from the Quotex chart. Cross-OTC live matching is therefore not implemented until chart extraction and fixture validation pass.
