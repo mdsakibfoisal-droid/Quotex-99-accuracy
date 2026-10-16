@@ -1,6 +1,6 @@
 const assert=require("node:assert/strict");const m=require("./candle-pattern-matcher.js");
 const up=[{open:1,high:2,low:.5,close:1.8},{open:1.8,high:2.4,low:1.6,close:2.3},{open:2.3,high:2.8,low:2.1,close:2.7}];
-const refs=[{id:"test-up",label:"test",candles:up,outcome:"UP"}];
+const refs=[{id:"test-up",label:"test",verified:true,candles:up,outcome:"UP"}];
 assert.equal(m.valid(up),true);
 assert.equal(m.similarity(up,up),100);
 assert.equal(m.match(up,refs,{threshold:95}).signal,"UP");
