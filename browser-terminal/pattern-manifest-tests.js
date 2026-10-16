@@ -3,7 +3,8 @@ const fs=require("node:fs");
 const path=require("node:path");
 const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,"pattern-image-manifest.json"),"utf8"));
 assert.ok(manifest.length>=1,"manifest must contain image entries");
-assert.equal(new Set(manifest.map(x=>x.file)).size,manifest.length,"manifest filenames must be unique");
+assert.equal(new Set(manifest.map(x=>x.zip_entry_index)).size,manifest.length,"ZIP entry indices must be unique");
+assert.equal(manifest.length,98,"all 98 ZIP images should be indexed");
 for(const item of manifest){
  assert.equal(item.verified,false,"ZIP images must remain unverified until manually reviewed");
  assert.equal(item.outcome,"UNVERIFIED");
