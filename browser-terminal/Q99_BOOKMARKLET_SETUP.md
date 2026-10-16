@@ -8,7 +8,8 @@
 - Clicking the bookmark again closes the panel.
 
 ## What it does not do
-- Does not capture the phone screen or read chart pixels.
+- Does not capture the phone screen or automatically identify candle shapes.
+- Includes a `চার্ট অ্যাক্সেস পরীক্ষা` diagnostic that checks whether page canvas pixels are readable; readable canvas does not prove it is the chart.
 - Does not read Quotex's protected chart or connect to a live feed.
 - Does not submit trades or access account credentials.
 - Does not prove that a pattern predicts the next candle. Match score is similarity, not win probability.
@@ -19,6 +20,7 @@
 3. Set its name to `Q99 Signal` and replace its URL/address with the copied `javascript:...` source. Save.
 4. On a normal webpage you control, open the bookmark from the bookmarks menu. If Chrome strips the `javascript:` URL or refuses to execute it, this method is not supported in that context; do not assume it works on the Quotex page.
 5. The Q99 panel should appear in the current page. Tap the bookmark again to close it.
+6. In the panel, tap `চার্ট অ্যাক্সেস পরীক্ষা` and share a screenshot of the result. This is only a diagnostic; it does not yet provide live UP/DOWN signals.
 
 Mobile browsers may remove or block long bookmarklet URLs. This is a prototype, not an installed extension. Test on a harmless page first.
 
