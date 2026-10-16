@@ -27,3 +27,22 @@ The requested scope is to search for the same normalized candle geometry across 
 - Keep the pattern's intended UP/DOWN label separate from shape transcription. Do not activate a pattern unless its direction is explicitly readable and independently reviewed.
 - A match means shape similarity only, not a guarantee of profitable OTC behavior. Different OTC instruments can generate similar shapes with different outcomes.
 - The current Android Chrome diagnostic only inspects page elements; it does not yet extract candle geometry from the Quotex chart. Cross-OTC live matching is therefore not implemented until chart extraction and fixture validation pass.
+
+
+## 2026-10-16 progress update
+
+The newly uploaded archive `১৫ সেকেন্ড সাইকোলজি খাতায় আঁকানো(2).zip` was opened successfully. It contains 98 files (image files in the archive). A visual contact-sheet review confirms that the set mixes 3-candle and 4-candle drawings and includes handwritten UP/DOWN entry arrows, 15-second candle/trade timer notes, dates, and OTC annotations.
+
+This is an inventory-level visual review only. It is not a full-resolution transcription of all 98 images. Individual candle geometry and the intended outcome for every image have not been independently verified, so no image has been promoted to an active signal reference. Existing `verified:false` manifest entries remain disabled.
+
+## Live chart extraction status
+
+The Android Chrome bookmarklet was run on the Quotex page. Its diagnostic found one canvas element (720×933 intrinsic size, approximately 424×549 CSS size) and 73 SVG elements. The earlier pixel-read test returned no readable pixel details. The current bookmarklet does not extract candle coordinates or shapes and cannot yet match the live chart to the archive. A DOM element count is not evidence that the candles were read.
+
+Completion criteria before claiming live matching:
+1. A repeatable extraction of candle bodies and upper/lower wicks from the visible chart, or an authorized structured OHLC feed that matches the OTC instrument.
+2. Fixture tests comparing extracted candle geometry against manually reviewed reference images.
+3. Independent review of each pattern's transcription and UP/DOWN label.
+4. Fail-closed behavior: WAIT whenever chart extraction, timeframe, reference transcription, or match threshold is uncertain.
+
+Do not report this feature as complete until those criteria pass.
