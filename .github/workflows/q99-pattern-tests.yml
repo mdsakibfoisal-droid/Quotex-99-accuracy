@@ -18,5 +18,8 @@ jobs:
       - name: Run matcher tests
         working-directory: browser-terminal
         run: node candle-pattern-matcher-tests.js
+      - name: Run OHLC feed guard tests
+        working-directory: browser-terminal
+        run: node ohlc-feed-guard-tests.js
       - name: Validate pattern manifest JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('browser-terminal/pattern-image-manifest.json','utf8')); console.log('Pattern manifest JSON valid')"
