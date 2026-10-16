@@ -7,6 +7,8 @@ on:
       - "browser-terminal/ohlc-analysis-tests.js"
       - "browser-terminal/candle-pattern-matcher.js"
       - "browser-terminal/candle-pattern-matcher-tests.js"
+      - "browser-terminal/pattern-image-manifest.json"
+      - "browser-terminal/pattern-manifest-tests.js"
       - ".github/workflows/ohlc-tests.yml"
   pull_request:
     paths:
@@ -31,3 +33,6 @@ jobs:
       - name: Run candle pattern matcher tests
         working-directory: browser-terminal
         run: node candle-pattern-matcher-tests.js
+      - name: Validate pattern image manifest
+        working-directory: browser-terminal
+        run: node pattern-manifest-tests.js
