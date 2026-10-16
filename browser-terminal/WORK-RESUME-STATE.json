@@ -1,0 +1,58 @@
+{
+  "project": "Q99 ZIP candle pattern matcher",
+  "schema_version": 1,
+  "last_checkpoint": "2026-10-16",
+  "current_stage": "reference_image_review",
+  "resume_from": {
+    "task": "Review the 98 ZIP images one by one at original resolution and transcribe only readable, verified candle patterns.",
+    "next_image_index": 1,
+    "completed_images": 0,
+    "total_images": 98,
+    "verified_patterns": 0,
+    "awaiting_review_images": 98
+  },
+  "stages": [
+    {
+      "id": "matcher_engine",
+      "status": "implemented",
+      "details": "Matches supplied OHLC or normalized candle-shape arrays; only verified:true references can produce a match."
+    },
+    {
+      "id": "voice_free_test_page",
+      "status": "implemented_manual_input_only",
+      "details": "Manual JSON test page; not connected to Quotex live candles."
+    },
+    {
+      "id": "zip_manifest",
+      "status": "indexed_unverified",
+      "details": "98 image slots indexed; no image transcription is marked verified."
+    },
+    {
+      "id": "live_quotex_ohlc",
+      "status": "blocked",
+      "details": "No documented/authorized live OHLC source or supported chart interface confirmed."
+    },
+    {
+      "id": "android_chrome_test",
+      "status": "not_tested",
+      "details": "Must be tested on user's phone; cannot claim success remotely."
+    },
+    {
+      "id": "ci",
+      "status": "configured_status_unverified",
+      "details": "GitHub Actions workflow includes matcher and manifest checks; latest run result not confirmed here."
+    }
+  ],
+  "safety_rules": [
+    "Never treat the manifest index as a verified pattern.",
+    "Never emit UP/DOWN when live candle data is unavailable.",
+    "Do not infer exact OHLC prices from hand-drawn pictures without a readable scale.",
+    "No automatic Buy/Sell execution."
+  ],
+  "links": {
+    "matcher_page": "https://mdsakibfoisal-droid.github.io/Quotex-99-accuracy/browser-terminal/candle-pattern-match.html",
+    "matcher_source": "https://github.com/mdsakibfoisal-droid/Quotex-99-accuracy/blob/feature/market-assistant-demo/browser-terminal/candle-pattern-matcher.js",
+    "image_manifest": "https://github.com/mdsakibfoisal-droid/Quotex-99-accuracy/blob/feature/market-assistant-demo/browser-terminal/pattern-image-manifest.json",
+    "workflow": "https://github.com/mdsakibfoisal-droid/Quotex-99-accuracy/blob/feature/market-assistant-demo/.github/workflows/ohlc-tests.yml"
+  }
+}
