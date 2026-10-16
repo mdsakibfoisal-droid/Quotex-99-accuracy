@@ -11,6 +11,8 @@ assert.match(script, /q99-bookmarklet-panel/, "bookmarklet should create its pan
 assert.match(script, /SCAN/, "scan button should be present");
 assert.match(script, /q99-timeframe/, "timeframe selector should be present");
 assert.match(script, /q99-history/, "recent scan history should be present");
+assert.match(script, /q99-filter/, "optional trend confirmation filter should be present");
+assert.match(script, /candleCount/, "scan output should report matched candle count");
 assert.match(script, /q99-bookmarklet-bubble/, "bookmarklet should create a minimized bubble");
 assert.match(script, /pointermove/, "panel and bubble should support pointer dragging");
 assert.match(script, /touchAction/, "dragging should support touch interaction");
