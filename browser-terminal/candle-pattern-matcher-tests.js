@@ -2,6 +2,10 @@ const assert=require("node:assert/strict");const m=require("./candle-pattern-mat
 const up=[{open:1,high:2,low:.5,close:1.8},{open:1.8,high:2.4,low:1.6,close:2.3},{open:2.3,high:2.8,low:2.1,close:2.7}];
 const refs=[{id:"test-up",label:"test",verified:true,candles:up,outcome:"UP"}];
 assert.equal(m.valid(up),true);
+const normalized=[{dir:1,body:0.6,upper:0.1,lower:0.3},{dir:-1,body:0.7,upper:0.2,lower:0.1}];
+assert.equal(m.validShape(normalized),true);
+assert.equal(m.similarity(normalized,normalized),100);
+assert.equal(m.validShape([{dir:1,body:2,upper:0,lower:0}]),false);
 assert.equal(m.similarity(up,up),100);
 assert.equal(m.match(up,refs,{threshold:95}).signal,"UP");
 assert.equal(m.match(up,[],{}).status,"WAIT");
