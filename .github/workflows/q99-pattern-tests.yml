@@ -18,6 +18,9 @@ jobs:
       - name: Run matcher tests
         working-directory: browser-terminal
         run: node candle-pattern-matcher-tests.js
+      - name: Run bookmarklet syntax and safety checks
+        working-directory: browser-terminal
+        run: node q99-bookmarklet-tests.js
       - name: Run OHLC feed guard tests
         working-directory: browser-terminal
         run: node ohlc-feed-guard-tests.js
