@@ -22,6 +22,7 @@ import android.widget.TextView
 import androidx.core.app.NotificationCompat
 import com.mdjibon.quotex99.engine.CandleAnalyzer
 import com.mdjibon.quotex99.engine.ScreenCaptureEngine
+import com.mdjibon.quotex99.engine.TimingEngine
 import java.util.concurrent.Executors
 
 /** User-approved screen capture and experimental candle-candidate display; never emits trade signals. */
@@ -38,6 +39,7 @@ class FloatingIconService : Service() {
     private var touchY = 0f
     private val handler = Handler(Looper.getMainLooper())
     private val analyzer = CandleAnalyzer()
+    private val timingEngine = TimingEngine()
     private val analysisExecutor = Executors.newSingleThreadExecutor()
     private var scanTask: Runnable? = null
     private var captureEngine: ScreenCaptureEngine? = null
@@ -185,6 +187,16 @@ class FloatingIconService : Service() {
                     scanTask = null
                     return
                 }
+                val remainingMs = timingEngine.getTimeRemaining()
+                val secondsLeft = ((remainingMs + 999L) / 1000L).toInt()
+                val countdown = String.format(java.util.Locale.US, "00:%02d", secondsLeft)
+                if (timingEngine.isValidTradingWindow()) {
+                    signalView?.text = "RUN\\n$countdown"
+                    signalView?.setBackgroundColor(Color.rgb(183, 28, 28))
+                } else {
+                    signalView?.text = "Q99\\n$countdown"
+                    signalView?.setBackgroundColor(Color.rgb(30, 136, 229))
+                }
                 // Never queue an unbounded backlog of full-screen bitmap analyses.
                 if (!analysisInProgress) {
                     val frame = runCatching { captureEngine?.captureFrame() }.getOrNull()
@@ -215,7 +227,7 @@ class FloatingIconService : Service() {
                         }
                     }
                 }
-                handler.postDelayed(this, 1000L)
+                handler.postDelayed(this, 500L)
             }
         }
         handler.post(scanTask!!)
