@@ -7,10 +7,10 @@ assert.ok(source.startsWith("javascript:"), "bookmarklet must start with javascr
 const script = source.slice("javascript:".length);
 assert.ok(script.length > 1000, "bookmarklet source must not be empty");
 assert.doesNotThrow(() => new vm.Script(script), "bookmarklet must parse as JavaScript");
-assert.match(script, /q99-panel/, "bookmarklet should create its panel");
-assert.match(script, /q99chart/, "chart screenshot input should exist");
-assert.match(script, /q99ref/, "reference image input should exist");
-assert.match(script, /q99threshold/, "similarity threshold input should exist");
+assert.match(script, /q99-floating-panel/, "bookmarklet should create its panel");
+assert.match(script, /q99-chart/, "chart screenshot input should exist");
+assert.match(script, /q99-ref/, "reference image input should exist");
+assert.match(script, /q99-threshold/, "similarity threshold input should exist");
 assert.match(script, /function extract/, "image feature extraction should exist");
 assert.match(script, /body:/, "candle body feature should be measured");
 assert.match(script, /upper:/, "upper wick feature should be measured");
