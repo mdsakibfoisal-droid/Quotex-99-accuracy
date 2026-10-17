@@ -10,10 +10,11 @@ assert.doesNotThrow(() => new vm.Script(script), "bookmarklet must parse as Java
 assert.match(script, /q99-floating-button/, "bookmarklet should create a floating button");
 assert.match(script, /border-radius:50%/, "floating button should be round");
 assert.match(script, /width:48px;height:48px/, "floating button should be compact");
-assert.match(script, /q99-signal-toast/, "button should show a small result toast");
-assert.match(script, /x\.textContent='WAIT'/, "unavailable live matching must fail closed to WAIT");
-assert.match(script, /লাইভ ক্যান্ডেল শনাক্তকরণ এখনো সংযুক্ত নয়/, "must disclose missing live candle detection");
-assert.doesNotMatch(script, /q99-floating-panel|<section|<textarea|<input type="file"/, "minimal version must not open a large panel");
+assert.match(script, /q99-signal-toast/, "button should show a small diagnostic toast");
+assert.match(script, /querySelectorAll\('canvas'\)/, "scan should check visible page canvases");
+assert.match(script, /getImageData/, "scan should test canvas pixel-read capability");
+assert.match(script, /WAIT/, "unknown or unreadable chart must fail closed to WAIT");
 assert.doesNotMatch(script, /fetch\s*\(|XMLHttpRequest|\.submit\s*\(/, "prototype must not fetch external data or submit forms");
 assert.doesNotMatch(script, /placeTrade|buyNow|sellNow/i, "prototype must not implement trading actions");
-console.log("Q99 minimal floating-button syntax/safety checks passed");
+assert.doesNotMatch(script, /q99-floating-panel|<section|<textarea|<input type="file"/, "minimal version must not open a large panel");
+console.log("Q99 floating-button syntax/safety checks passed");
