@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main, "fix/screen-capture-integration"]
+    branches: [main, "fix/screen-capture-integration", "fix/complete-15s-candle-engine"]
 
 permissions:
   contents: read
