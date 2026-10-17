@@ -24,5 +24,8 @@ jobs:
       - name: Run OHLC feed guard tests
         working-directory: browser-terminal
         run: node ohlc-feed-guard-tests.js
+      - name: Run strict reference matcher tests
+        working-directory: browser-terminal
+        run: node q99-reference-matcher-tests.js
       - name: Validate pattern manifest JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('browser-terminal/pattern-image-manifest.json','utf8')); console.log('Pattern manifest JSON valid')"
