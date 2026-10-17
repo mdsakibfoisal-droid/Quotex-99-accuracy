@@ -1,0 +1,884 @@
+[
+  {
+    "id": "img-001",
+    "file": "Screenshot_2026-10-15-20-10-34-74_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-002",
+    "file": "Screenshot_2026-10-15-20-11-07-74_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-003",
+    "file": "Screenshot_2026-10-15-20-11-26-17_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-004",
+    "file": "Screenshot_2026-10-15-20-11-42-21_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-005",
+    "file": "Screenshot_2026-10-15-20-11-54-48_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-006",
+    "file": "Screenshot_2026-10-15-20-12-09-33_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-007",
+    "file": "Screenshot_2026-10-15-20-12-26-11_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-008",
+    "file": "Screenshot_2026-10-15-20-12-42-79_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-009",
+    "file": "Screenshot_2026-10-15-20-12-54-65_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-010",
+    "file": "Screenshot_2026-10-15-20-13-10-29_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-011",
+    "file": "Screenshot_2026-10-15-20-13-24-16_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-012",
+    "file": "Screenshot_2026-10-15-20-13-35-91_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-013",
+    "file": "Screenshot_2026-10-15-20-13-51-22_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-014",
+    "file": "Screenshot_2026-10-15-20-14-02-23_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-015",
+    "file": "Screenshot_2026-10-15-20-14-13-83_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-016",
+    "file": "Screenshot_2026-10-15-20-14-24-85_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-017",
+    "file": "Screenshot_2026-10-15-20-22-20-91_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-018",
+    "file": "Screenshot_2026-10-15-20-23-16-04_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-019",
+    "file": "Screenshot_2026-10-15-20-23-56-23_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-020",
+    "file": "Screenshot_2026-10-15-20-24-10-12_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-021",
+    "file": "Screenshot_2026-10-15-20-24-32-83_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-022",
+    "file": "Screenshot_2026-10-15-20-24-53-68_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-023",
+    "file": "Screenshot_2026-10-15-20-25-18-98_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-024",
+    "file": "Screenshot_2026-10-15-20-25-34-08_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-025",
+    "file": "Screenshot_2026-10-15-20-25-46-11_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-026",
+    "file": "Screenshot_2026-10-15-20-25-59-99_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-027",
+    "file": "Screenshot_2026-10-15-20-26-11-51_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-028",
+    "file": "Screenshot_2026-10-15-20-26-24-44_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-029",
+    "file": "Screenshot_2026-10-15-20-26-37-69_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-030",
+    "file": "Screenshot_2026-10-15-20-26-52-52_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-031",
+    "file": "Screenshot_2026-10-15-20-27-06-27_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-032",
+    "file": "Screenshot_2026-10-15-20-27-19-34_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-033",
+    "file": "Screenshot_2026-10-15-20-27-32-02_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-034",
+    "file": "Screenshot_2026-10-15-20-27-43-57_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-035",
+    "file": "Screenshot_2026-10-15-20-27-54-40_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-036",
+    "file": "Screenshot_2026-10-15-20-28-06-27_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-037",
+    "file": "Screenshot_2026-10-15-20-28-18-99_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-038",
+    "file": "Screenshot_2026-10-15-20-28-57-57_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-039",
+    "file": "Screenshot_2026-10-15-20-29-13-00_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-040",
+    "file": "Screenshot_2026-10-15-20-29-23-35_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-041",
+    "file": "Screenshot_2026-10-15-20-29-37-51_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-042",
+    "file": "Screenshot_2026-10-15-20-29-51-23_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-043",
+    "file": "IMG_20261015_205131.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-044",
+    "file": "Screenshot_2026-10-15-20-31-51-67_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-045",
+    "file": "Screenshot_2026-10-15-20-32-12-83_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-046",
+    "file": "Screenshot_2026-10-15-20-36-24-74_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-047",
+    "file": "Screenshot_2026-10-15-20-36-44-84_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-048",
+    "file": "Screenshot_2026-10-15-20-36-54-44_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-049",
+    "file": "Screenshot_2026-10-15-20-37-04-43_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-050",
+    "file": "Screenshot_2026-10-15-20-37-26-16_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-051",
+    "file": "Screenshot_2026-10-15-20-37-39-96_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-052",
+    "file": "Screenshot_2026-10-15-20-38-11-73_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-053",
+    "file": "Screenshot_2026-10-15-20-38-25-28_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-054",
+    "file": "Screenshot_2026-10-15-20-38-36-95_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-055",
+    "file": "Screenshot_2026-10-15-20-38-46-80_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-056",
+    "file": "Screenshot_2026-10-15-20-39-54-99_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-057",
+    "file": "Screenshot_2026-10-15-20-40-43-89_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-058",
+    "file": "Screenshot_2026-10-15-20-40-54-37_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-059",
+    "file": "Screenshot_2026-10-15-20-41-25-65_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-060",
+    "file": "Screenshot_2026-10-15-20-41-55-32_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-061",
+    "file": "Screenshot_2026-10-15-20-43-15-63_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-062",
+    "file": "Screenshot_2026-10-15-20-43-31-15_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-063",
+    "file": "Screenshot_2026-10-15-20-49-33-01_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-064",
+    "file": "Screenshot_2026-10-15-20-32-01-42_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-065",
+    "file": "Screenshot_2026-10-15-20-35-42-87_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-066",
+    "file": "Screenshot_2026-10-15-20-35-53-69_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-067",
+    "file": "Screenshot_2026-10-15-20-36-04-05_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-068",
+    "file": "Screenshot_2026-10-15-20-36-12-94_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-069",
+    "file": "Screenshot_2026-10-15-20-36-35-19_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-070",
+    "file": "Screenshot_2026-10-15-20-37-16-41_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-071",
+    "file": "Screenshot_2026-10-15-20-37-50-09_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-072",
+    "file": "Screenshot_2026-10-15-20-38-00-95_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-073",
+    "file": "Screenshot_2026-10-15-20-38-57-91_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-074",
+    "file": "Screenshot_2026-10-15-20-39-10-83_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-075",
+    "file": "Screenshot_2026-10-15-20-39-21-57_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-076",
+    "file": "Screenshot_2026-10-15-20-39-33-19_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-077",
+    "file": "Screenshot_2026-10-15-20-39-44-87_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-078",
+    "file": "Screenshot_2026-10-15-20-40-08-48_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-079",
+    "file": "Screenshot_2026-10-15-20-40-22-81_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-080",
+    "file": "Screenshot_2026-10-15-20-40-34-05_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-081",
+    "file": "Screenshot_2026-10-15-20-41-05-28_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-082",
+    "file": "Screenshot_2026-10-15-20-41-15-34_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-083",
+    "file": "Screenshot_2026-10-15-20-41-35-38_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-084",
+    "file": "Screenshot_2026-10-15-20-41-44-29_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-085",
+    "file": "Screenshot_2026-10-15-20-42-05-39_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-086",
+    "file": "Screenshot_2026-10-15-20-42-15-77_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-087",
+    "file": "Screenshot_2026-10-15-20-42-27-59_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-088",
+    "file": "Screenshot_2026-10-15-20-42-47-21_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-089",
+    "file": "Screenshot_2026-10-15-20-43-42-55_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-090",
+    "file": "Screenshot_2026-10-15-20-44-01-07_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-091",
+    "file": "Screenshot_2026-10-15-20-44-13-35_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-092",
+    "file": "Screenshot_2026-10-15-20-44-27-23_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-093",
+    "file": "Screenshot_2026-10-15-20-48-52-34_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-094",
+    "file": "Screenshot_2026-10-15-20-49-08-31_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-095",
+    "file": "Screenshot_2026-10-15-20-49-44-94_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-096",
+    "file": "Screenshot_2026-10-15-20-49-56-20_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-097",
+    "file": "Screenshot_2026-10-15-20-50-06-10_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  },
+  {
+    "id": "img-098",
+    "file": "Screenshot_2026-10-15-20-50-31-60_99c04817c0de5652397fc8b56c3b3817.jpg",
+    "transcription_status": "pending",
+    "verified": false,
+    "candle_count": null,
+    "outcome": "UNVERIFIED",
+    "notes": "Full-resolution transcription and outcome mapping required; disabled until verified."
+  }
+]

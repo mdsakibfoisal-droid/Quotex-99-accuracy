@@ -1,86 +1,21 @@
 (() => {
-  "use strict";
-  const $ = id => document.getElementById(id);
-  const target = $("target"), duration = $("duration");
-  const status = $("status"), left = $("left"), count = $("intercepts");
-  const terminal = $("terminal"), stopButton = $("stop");
-  let timer = null, endAt = 0, intercepts = 0, activeTarget = "";
-  const setStatus = text => { status.textContent = text; };
-  function stop(message = "STOPPED") {
-    if (timer !== null) clearInterval(timer);
-    timer = null; endAt = 0; left.textContent = "—";
-    stopButton.disabled = true;
-    setStatus(message);
-  }
-  function minimize() { terminal.classList.add("collapsed"); }
-  $("minimize").addEventListener("click", event => {
-    event.preventDefault();
-    event.stopPropagation();
-    minimize();
-  });
-  $("minimize-hint").addEventListener("click", minimize);
-  let drag = null;
-  let dragged = false;
-  terminal.addEventListener("pointerdown", event => {
-    if (!terminal.classList.contains("collapsed")) return;
-    drag = { x: event.clientX, y: event.clientY, left: terminal.getBoundingClientRect().left, top: terminal.getBoundingClientRect().top };
-    dragged = false;
-    terminal.setPointerCapture?.(event.pointerId);
-    event.preventDefault();
-  });
-  terminal.addEventListener("pointermove", event => {
-    if (!drag || !terminal.classList.contains("collapsed")) return;
-    const dx = event.clientX - drag.x, dy = event.clientY - drag.y;
-    if (Math.abs(dx) + Math.abs(dy) > 5) dragged = true;
-    if (dragged) {
-      const x = Math.max(0, Math.min(window.innerWidth - terminal.offsetWidth, drag.left + dx));
-      const y = Math.max(0, Math.min(window.innerHeight - terminal.offsetHeight, drag.top + dy));
-      terminal.style.left = x + "px";
-      terminal.style.top = y + "px";
-      terminal.style.right = "auto";
-      terminal.style.bottom = "auto";
-    }
-  });
-  terminal.addEventListener("pointerup", () => { drag = null; });
-  terminal.addEventListener("pointercancel", () => { drag = null; });
-  terminal.addEventListener("click", event => {
-    if (!terminal.classList.contains("collapsed")) return;
-    if (dragged) { dragged = false; event.preventDefault(); event.stopPropagation(); return; }
-    terminal.classList.remove("collapsed");
-    terminal.style.left = "";
-    terminal.style.top = "";
-    terminal.style.right = "";
-    terminal.style.bottom = "";
-    event.preventDefault();
-    event.stopPropagation();
-  });
-  document.querySelectorAll("[data-seconds]").forEach(button => button.addEventListener("click", () => {
-    duration.value = button.dataset.seconds;
-    document.querySelectorAll("[data-seconds]").forEach(b => b.classList.toggle("active", b === button));
-  }));
-  $("start").addEventListener("click", () => {
-    if (timer !== null) stop("STANDBY");
-    const raw = target.value.trim();
-    const seconds = Number(duration.value);
-    const n = Number(raw);
-    if (!raw || !Number.isFinite(n) || !Number.isFinite(seconds) || seconds < 1 || seconds > 300) {
-      setStatus("CHECK INPUT"); return;
-    }
-    activeTarget = n.toFixed(Math.min(8, (raw.split(".")[1] || "").length));
-    endAt = Date.now() + seconds * 1000;
-    stopButton.disabled = false;
-    setStatus("RUNNING");
-    const tick = () => {
-      const remaining = Math.max(0, endAt - Date.now());
-      if (remaining <= 0) {
-        stop("COMPLETE");
-        intercepts += 1;
-        count.textContent = String(intercepts);
-      }
-    };
-    tick();
-    if (endAt > Date.now()) timer = setInterval(tick, 100);
-  });
-  $("stop").addEventListener("click", () => stop());
-  window.addEventListener("pagehide", () => { if (timer !== null) clearInterval(timer); });
+"use strict";
+const $=id=>document.getElementById(id), terminal=$("terminal");
+let expiry=15, timer=null, scans=0, latest=null;
+const setStatus=s=>$("status").textContent=s;
+$("minimize").onclick=()=>terminal.classList.add("collapsed");
+$("minimize-hint").onclick=()=>terminal.classList.add("collapsed");
+terminal.onclick=e=>{if(terminal.classList.contains("collapsed")&&!e.target.closest("button"))terminal.classList.remove("collapsed");};
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".tab-panel").forEach(p=>{p.hidden=p.id!=="tab-"+b.dataset.tab;p.classList.toggle("active",!p.hidden);});});
+document.querySelectorAll("[data-seconds]").forEach(b=>b.onclick=()=>{expiry=Number(b.dataset.seconds);document.querySelectorAll("[data-seconds]").forEach(x=>x.classList.toggle("active",x===b));});
+$("asset-select").onchange=()=>$("asset-label").textContent=$("asset-select").value;
+function candles(pattern){if(pattern==="pinbar")return[{o:1.2700,c:1.2694,h:1.2703,l:1.2687},{o:1.2693,c:1.2697,h:1.2700,l:1.2679}];if(pattern==="three")return[{o:1.2700,c:1.2696,h:1.2702,l:1.2692},{o:1.2696,c:1.2698,h:1.2700,l:1.2693},{o:1.2698,c:1.2704,h:1.2706,l:1.2697}];return[{o:1.2700,c:1.2693,h:1.2702,l:1.2690},{o:1.2692,c:1.2701,h:1.2703,l:1.2691}];}
+function analyze(p,c){let a=c[c.length-1],b=c[c.length-2];if(p==="engulfing"){if(b.c<b.o&&a.c>a.o&&a.o<=b.c&&a.c>=b.o)return["CALL","Bullish engulfing"];if(b.c>b.o&&a.c<a.o&&a.o>=b.c&&a.c<=b.o)return["PUT","Bearish engulfing"];return["WAIT","No match"];}if(p==="pinbar"){let r=a.h-a.l,body=Math.abs(a.c-a.o),lo=Math.min(a.o,a.c)-a.l,up=a.h-Math.max(a.o,a.c);if(r&&lo/r>=.55&&body/r<=.35)return["CALL","Sample bullish pin bar"];if(r&&up/r>=.55&&body/r<=.35)return["PUT","Sample bearish pin bar"];return["WAIT","No match"];}let up=c.every(x=>x.c>x.o),dn=c.every(x=>x.c<x.o);return up?["CALL","Three bullish candles"]:dn?["PUT","Three bearish candles"]:["WAIT","No match"];}
+$("scan").onclick=()=>{scans++;$("scan-count").textContent=scans;let p=$("pattern").value,r=analyze(p,candles(p));latest={side:r[0],name:r[1],asset:$("asset-select").value};$("scan-status").textContent=r[0]==="WAIT"?"NO MATCH":"SAMPLE MATCH";$("signal").textContent=r[0];$("signal").className="signal "+r[0].toLowerCase();$("scan-detail").textContent=r[1]+". Illustrative sample candles only; not connected to live Quotex data.";setStatus("DEMO SAMPLE");if(timer)clearInterval(timer);if(r[0]==="WAIT"){$("countdown").textContent="—";$("last-result").textContent="NO SIGNAL";return;}let end=Date.now()+expiry*1000;setStatus("DEMO TIMER");$("last-result").textContent="PENDING";timer=setInterval(()=>{let n=Math.max(0,end-Date.now());$("countdown").textContent=(n/1000).toFixed(1)+"s";if(!n){clearInterval(timer);timer=null;$("last-result").textContent="TIMER DONE";setStatus("DEMO COMPLETE");}},100);};
+$("stop").onclick=()=>{if(timer)clearInterval(timer);timer=null;$("countdown").textContent="—";setStatus("STOPPED");};
+function add(role,text){let n=document.createElement("div");n.className="bubble "+role;n.textContent=text;$("chat-log").appendChild(n);}
+function reply(q){let s=q.toLowerCase();if(s.includes("scan")||s.includes("স্ক্যান")||s.includes("ফল"))return latest?"Last sample scan: "+latest.asset+" / "+latest.name+" / "+latest.side+". It uses illustrative candles only.":"No scan yet. Open Scanner and tap Scan sample.";if(s.includes("engulf"))return"Engulfing compares the real bodies of two adjacent candles. A candle can change before close, and the pattern does not guarantee a profitable outcome.";if(s.includes("risk")||s.includes("ঝুঁকি")||s.includes("১৫"))return"Very short expiries are sensitive to entry timing, latency and payout. This demo has no live prices and cannot assess current conditions.";if(s.includes("market")||s.includes("মার্কেট")||s.includes("অবস্থা"))return"Live market data is not connected, so I cannot report current market conditions. I can explain the sample scan.";return"I can explain candle patterns and risk. This is a local demo assistant, not a live AI connection to Quotex."; }
+$("chat-form").onsubmit=e=>{e.preventDefault();let i=$("chat-input"),q=i.value.trim();if(!q)return;add("user",q);i.value="";add("assistant",reply(q));};
+document.querySelectorAll("[data-question]").forEach(b=>b.onclick=()=>{add("user",b.dataset.question);add("assistant",reply(b.dataset.question));});
+$("clear-history").onclick=()=>{$("history-list").innerHTML='<li class="empty-history">No sessions recorded in this demo.</li>';};
 })();

@@ -1,36 +1,71 @@
 <!doctype html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#071321">
-<title>CB Traders BD — Round Terminal Demo</title>
+<title>CB Traders BD — Market Assistant Demo</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="terminal" id="terminal">
   <header class="top">
     <div class="logo" aria-hidden="true">CB</div>
-    <div class="brand-copy"><h1>CB TRADERS BD</h1><p><i></i> ROUND TERMINAL FREE BOT</p></div>
+    <div class="brand-copy"><h1>CB MARKET ASSISTANT</h1><p><i></i> SCANNER · DEMO MODE</p></div>
     <button class="head-button minimize" id="minimize" aria-label="Minimize panel" title="Minimize">—</button>
   </header>
   <section id="panel">
-    <div class="asset">
-      <div><span class="eyebrow">⚙ MARKET ASSET</span><strong>GBP/CAD <b>(REAL)</b></strong></div>
-      <span class="live"><i></i> LIVE</span>
-      <span class="spark" aria-hidden="true">⌁</span>
+    <div class="notice visible" id="notice"><strong>DEMO ONLY</strong> — Live Quotex data and real trade execution are not connected. Sample scans and results are simulated.</div>
+    <div style="padding:12px;margin:10px 0;border:1px solid #18b8f5;border-radius:12px;background:#102538;line-height:1.6">
+      <strong>বাংলা ভয়েস ও OHLC বিশ্লেষণ</strong><br>
+      <span style="font-size:12px">কথায় প্রশ্ন করো অথবা যাচাইকৃত OHLC ডেটা দিয়ে ক্যান্ডেল বিশ্লেষণ করো। এই পেজ নিজে লাইভ Quotex ডেটা পড়ে না।</span><br>
+      <a href="voice-market-assistant.html" style="display:inline-block;margin-top:8px;color:#71caff;font-weight:bold">বাংলা Voice Assistant খুলুন →</a>
     </div>
-    <label for="target">ROUND NUMBER</label>
-    <input id="target" inputmode="decimal" placeholder="Enter round number" autocomplete="off" aria-label="Round number">
-    <label for="duration">TIME (SECOND)</label>
-    <input id="duration" type="number" min="1" max="300" placeholder="Select time below" autocomplete="off" aria-label="Time in seconds">
-    <div class="presets" aria-label="Select duration">
-      <button type="button" data-seconds="5">5s</button><button type="button" data-seconds="6">6s</button><button type="button" data-seconds="10">10s</button><button type="button" data-seconds="15">15s</button><button type="button" data-seconds="30">30s</button>
-    </div>
-    <div class="actions"><button id="start" class="primary" type="button">START</button><button id="stop" type="button" disabled>STOP</button></div>
-    <div class="footer-status"><span class="standby"><i></i><strong id="status">STANDBY</strong></span><strong class="intercepts">INTERCEPTS: <span id="intercepts">0</span></strong></div>
-    <button type="button" class="minimize-hint" id="minimize-hint">[ ◆ TAP LOGO OR HERE TO MINIMIZE ◆ ]</button>
-    <p class="notice" id="notice">Demo interface only — not connected to Quotex or live price data.</p>
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab active" data-tab="scanner">Scanner</button>
+      <button class="tab" data-tab="chat">Market chat</button>
+      <button class="tab" data-tab="history">Trade log</button>
+    </nav>
+    <section class="tab-panel active" id="tab-scanner">
+      <div class="asset">
+        <div><span class="eyebrow">MARKET TO REVIEW</span><strong id="asset-label">GBP/CAD</strong></div>
+        <span class="demo-pill">SIMULATED</span>
+      </div>
+      <label for="asset-select">MARKET</label>
+      <select id="asset-select"><option>GBP/CAD</option><option>EUR/USD</option><option>USD/JPY</option><option>AUD/USD</option><option>EUR/GBP</option></select>
+      <label for="pattern">CANDLE RULE</label>
+      <select id="pattern"><option value="engulfing">Engulfing pattern</option><option value="pinbar">Pin bar (sample rule)</option><option value="three">Three-candle sequence (sample rule)</option></select>
+      <label for="duration">DEMO EXPIRY</label>
+      <div class="presets" aria-label="Select expiry">
+        <button type="button" data-seconds="5">5s</button><button type="button" data-seconds="15" class="active">15s</button><button type="button" data-seconds="30">30s</button><button type="button" data-seconds="60">1m</button>
+      </div>
+      <div class="scan-actions"><button id="scan" class="primary" type="button">SCAN SAMPLE</button><button id="stop" type="button" disabled>STOP</button></div>
+      <div class="result-card" aria-live="polite">
+        <div class="result-heading"><span>SCAN RESULT</span><strong id="scan-status">WAITING</strong></div>
+        <div class="signal" id="signal">—</div>
+        <p id="scan-detail">Tap “Scan sample” to test the rules on illustrative candle data.</p>
+        <div class="metrics"><div><span>DEMO TIMER</span><strong id="countdown">—</strong></div><div><span>DEMO RESULT</span><strong id="last-result">—</strong></div></div>
+      </div>
+      <p class="small-note">A sample scan is not a live-market signal and cannot place a Quotex order.</p>
+    </section>
+    <section class="tab-panel" id="tab-chat" hidden>
+      <div class="chat-intro"><strong>Market assistant</strong><p>Ask about candle patterns, risk, or what this demo scan means. Answers are educational, not live market readings.</p></div>
+      <div id="chat-log" class="chat-log" aria-live="polite"><div class="bubble assistant">হ্যালো! আমি তোমার মার্কেট অ্যাসিস্ট্যান্ট ডেমো। এখনো লাইভ Quotex চার্ট দেখতে পাচ্ছি না, তবে প্যাটার্ন ও ঝুঁকি বুঝিয়ে বলতে পারি।</div></div>
+      <div class="quick-questions">
+        <button type="button" data-question="এই স্ক্যানের ফল কী বোঝায়?">স্ক্যান বুঝিয়ে বলো</button>
+        <button type="button" data-question="Engulfing pattern কীভাবে কাজ করে?">Engulfing কী?</button>
+        <button type="button" data-question="১৫ সেকেন্ডের ট্রেডে কী ঝুঁকি আছে?">১৫s ঝুঁকি</button>
+      </div>
+      <form id="chat-form" class="chat-form"><input id="chat-input" placeholder="মার্কেট সম্পর্কে প্রশ্ন করো…" autocomplete="off" maxlength="400"><button type="submit" aria-label="Send message">➤</button></form>
+    </section>
+    <section class="tab-panel" id="tab-history" hidden>
+      <div class="history-summary"><div><span>DEMO SESSIONS</span><strong id="session-count">0</strong></div><div><span>DEMO WINS</span><strong id="win-count">0</strong></div><div><span>DEMO LOSSES</span><strong id="loss-count">0</strong></div></div>
+      <p class="small-note">Results below are generated from a simulated outcome only; they are not Quotex trades or evidence of profitability.</p>
+      <ol id="history-list" class="history-list"><li class="empty-history">No demo sessions yet.</li></ol>
+      <button id="clear-history" class="secondary-button" type="button">Clear demo log</button>
+    </section>
+    <footer class="footer-status"><span class="standby"><i></i><strong id="status">READY · DEMO</strong></span><strong class="intercepts">SCANS: <span id="scan-count">0</span></strong></footer>
+    <button type="button" class="minimize-hint" id="minimize-hint">[ MINIMIZE TO FLOATING BUBBLE ]</button>
   </section>
 </main>
 <script src="app.js"></script>
