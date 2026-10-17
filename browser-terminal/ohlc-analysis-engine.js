@@ -84,5 +84,7 @@
       disclaimer: "এটি সরবরাহ করা OHLC ডেটার নিয়মভিত্তিক ব্যাখ্যা, নিশ্চিত ভবিষ্যদ্বাণী নয়। ডেটার উৎস/সময় যাচাই করুন; কোনো লাভের নিশ্চয়তা নেই।"
     };
   }
-  root.QuotexOHLCAnalysis = { validateCandles, metrics, analyze };
+  const api = { validateCandles, metrics, analyze };
+  root.QuotexOHLCAnalysis = api;
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof window !== "undefined" ? window : globalThis);
