@@ -21,6 +21,9 @@ jobs:
       - name: Run bookmarklet syntax and safety checks
         working-directory: browser-terminal
         run: node q99-bookmarklet-tests.js
+      - name: Run OHLC analysis engine tests
+        working-directory: browser-terminal
+        run: node ohlc-analysis-tests.js
       - name: Run OHLC feed guard tests
         working-directory: browser-terminal
         run: node ohlc-feed-guard-tests.js
