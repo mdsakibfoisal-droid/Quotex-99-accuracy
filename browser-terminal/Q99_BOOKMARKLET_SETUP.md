@@ -1,56 +1,34 @@
-# Q99 Chrome bookmarklet — signal-only prototype
+# Q99 Android bookmarklet — screenshot comparison prototype
 
-## What this version does
-- Opens a small panel in the current page when the bookmarklet is run.
-- Accepts manually supplied OHLC candles and a JSON array of reference patterns.
-- Compares the latest candles with patterns marked `verified: true`.
-- Displays UP or DOWN only when the geometric match score meets the chosen threshold; otherwise WAIT.
+## Current behavior
+- Opens a Q99 panel on the current page.
+- Lets you choose a chart screenshot and a reference-pattern image from your phone.
+- Locally scans red/green pixel columns and compares the recent candidate shapes/order in both images.
+- Shows an approximate visual similarity score and WAIT unless the score reaches the user-selected threshold.
+- The score is experimental, not a probability of winning. It is not a validated UP/DOWN trading signal.
 - Clicking the bookmark again closes the panel.
 
-## What it does not do
-- Does not capture the phone screen or automatically identify candle shapes.
-- Includes a `চার্ট অ্যাক্সেস পরীক্ষা` diagnostic that checks whether page canvas pixels are readable; readable canvas does not prove it is the chart.
-- Does not read Quotex's protected chart or connect to a live feed.
-- Does not submit trades or access account credentials.
-- Does not prove that a pattern predicts the next candle. Match score is similarity, not win probability.
+## Important limitations
+- This does **not** read the live chart automatically or continuously.
+- It does **not** reliably separate candle bodies from wicks, identify chart axes/timeframes, or distinguish candles from other red/green page elements. Grid lines, background art, zoom, and screenshot crop can distort the result.
+- A high score only means the crude image heuristic found similar red/green shapes; it is not proof that the hand-drawn pattern matches.
+- It does not submit trades, read account credentials, or connect to a live feed.
+- OTC patterns may not behave the same across assets/platforms, and no pattern guarantees a result.
 
-## Android Chrome installation (manual)
-1. Open this file on GitHub and copy the entire single-line source beginning with `javascript:`: [q99-bookmarklet.js](https://github.com/mdsakibfoisal-droid/Quotex-99-accuracy/blob/feature/market-assistant-demo/browser-terminal/q99-bookmarklet.js).
-2. In Chrome, create any bookmark, then edit that bookmark.
-3. Set its name to `Q99 Signal` and replace its URL/address with the copied `javascript:...` source. Save.
-4. On a normal webpage you control, open the bookmark from the bookmarks menu. If Chrome strips the `javascript:` URL or refuses to execute it, this method is not supported in that context; do not assume it works on the Quotex page.
-5. The Q99 panel should appear in the current page. Tap the bookmark again to close it.
-6. In the panel, tap `চার্ট অ্যাক্সেস পরীক্ষা` and share a screenshot of the result. This is only a diagnostic; it does not yet provide live UP/DOWN signals.
+## Install on Android Chrome
+1. Open the [bookmarklet source](https://github.com/mdsakibfoisal-droid/Quotex-99-accuracy/blob/feature/market-assistant-demo/browser-terminal/q99-bookmarklet.js).
+2. Copy the complete one-line source beginning with `javascript:`.
+3. In Chrome, create any bookmark and edit it.
+4. Name it `Q99 Screenshot Test`; replace its URL/address with the copied source and save.
+5. Open the Quotex page and tap that bookmark. If the browser strips or blocks `javascript:` URLs, it will not run in that browser/context.
+6. In Q99, select a **cropped screenshot showing only the chart candles** and a reference drawing image. Tap `ছবি মিলিয়ে দেখুন`.
+7. Treat the result as a visual experiment only. Do not place a trade based on the score.
 
-Mobile browsers may remove or block long bookmarklet URLs. This is a prototype, not an installed extension. Test on a harmless page first.
+## What is still needed for the intended version
+1. The ZIP of hand-drawn patterns must be available and each image needs manual transcription/review (sequence, timeframe, market notes and marked direction).
+2. The image algorithm must be validated against labelled screenshots, with candle body and upper/lower wick detected separately and false detections measured.
+3. To generate live signals, a legitimate data source must supply matching symbol, market type (including OTC if available), timeframe and closed candles. A third-party feed may not match Quotex OTC data.
+4. Add freshness/symbol/interval checks and fail closed to WAIT whenever the source or detection is uncertain.
+5. Run repository tests and verify GitHub Actions. Test on Android Chrome; mobile browsers may block long bookmarklets.
 
-## Input shape
-References must be a JSON array. Each active reference must have `verified: true`, `outcome: "UP"|"DOWN"|"WAIT"`, and at least two valid OHLC candles. Example only (synthetic data, not a real strategy):
-
-```json
-[
-  {
-    "id": "example-only",
-    "label": "Synthetic example",
-    "verified": true,
-    "outcome": "UP",
-    "candles": [
-      {"open": 1, "high": 2, "low": 0.8, "close": 1.8},
-      {"open": 1.8, "high": 2.4, "low": 1.5, "close": 2.2}
-    ]
-  }
-]
-```
-
-Current candles use the same OHLC format. Values must be numeric and satisfy high >= open/close and low <= open/close. Reference examples must come from independent review before they are used; do not mark ZIP drawings verified just to force a signal.
-
-## Remaining work before any live signal
-1. Transcribe all relevant hand-drawn ZIP images at full resolution.
-2. Record candle sequence, timeframe, OTC/regular market notes, and the author's marked direction separately from measured outcomes.
-3. Get independent review and build historical/replay fixtures; keep ambiguous references disabled.
-4. Select an authorized feed that actually matches the asset, OTC status, and timeframe. A third-party feed may not match Quotex OTC candles.
-5. Add timestamp, symbol, interval, closed-candle, and stale-data checks to any future feed adapter; failure must always clear the signal to WAIT.
-6. Run the repository's Node tests and confirm the GitHub Actions workflow passes.
-7. Test the bookmarklet on Android Chrome and document where it is blocked or stripped.
-
-Never embed provider API keys in the bookmarklet or repository. No live feed is configured in this prototype.
+Do not embed provider API keys in this bookmarklet or repository. No live feed is configured. Never mark unreviewed ZIP drawings as verified just to force a signal.
